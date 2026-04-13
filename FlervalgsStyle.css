@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     padding: 20px;
 }
+
 a {
     display: inline-block;
     margin-bottom: 15px;
@@ -11,10 +12,14 @@ a {
     font-weight: bold;
 }
 
-/* Progress bar */
+/* =======================
+   STATUS / PROGRESS
+   ======================= */
+
 .status {
     margin-bottom: 20px;
 }
+
 .progress-bar {
     width: 100%;
     height: 20px;
@@ -22,39 +27,61 @@ a {
     border-radius: 10px;
     overflow: hidden;
 }
+
 .progress {
     height: 100%;
     width: 0%;
     background-color: #060606;
     transition: width 0.5s ease;
 }
+
 .teller {
     margin-top: 5px;
     font-weight: bold;
 }
 
-/* Layout */
+/* =======================
+   LAYOUT
+   ======================= */
+
 .container {
     display: flex;
     gap: 20px;
 }
+
+/* Felles stil for begge bokser */
 .box {
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
-    flex: 1;
 }
 
-/* Spørsmål og svar */
+/* Venstre boks: 7/10 */
+.container .box:first-child {
+    flex: 7;
+}
+
+/* Høyre boks: 3/10 */
+.container .box:last-child {
+    flex: 3;
+}
+
+/* =======================
+   SPØRSMÅL / SVAR
+   ======================= */
+
 .box p {
     margin-bottom: 8px;
 }
+
 #quiz {
     margin-top: 5px;
 }
+
 #quiz input[type="radio"] {
     display: none;
 }
+
 .svar {
     display: block;
     padding: 12px;
@@ -64,20 +91,27 @@ a {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
 .svar:hover {
     background-color: #f0f8ff;
     border-color: #0077cc;
 }
+
 .svar.riktig {
-    background-color: #d4edda; /* grønn */
+    background-color: #d4edda;
     border-color: #28a745;
     color: #155724;
 }
+
 .svar.feil {
-    background-color: #f8d7da; /* rød */
+    background-color: #f8d7da;
     border-color: #dc3545;
     color: #721c24;
 }
+
+/* =======================
+   KNAPPER / RESULTAT
+   ======================= */
 
 button {
     margin-top: 10px;
@@ -91,11 +125,53 @@ button {
     font-weight: bold;
     font-size: 18px;
 }
+
 #neste {
     display: none;
 }
 
+/* =======================
+   BILDER
+   ======================= */
+
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-height: 300px;
+    max-width: 550px;
+}
+
+
+/* =======================
+   ADAPTIV MOBIL-LAYOUT
+   ======================= */
+
+@media (max-width: 768px) {
+
+    /* Stable boksene vertikalt */
+    .container {
+        flex-direction: column;
+    }
+
+    /* Full bredde på begge bokser */
+    .container .box:first-child,
+    .container .box:last-child {
+        flex: none;
+        width: 100%;
+    }
+
+    /* Litt mindre padding på mobil */
+    .box {
+        padding: 15px;
+    }
+
+    /* Mindre mellomrom mellom svar */
+    .svar {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Bilde tilpasses mobil */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }

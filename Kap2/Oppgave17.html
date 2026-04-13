@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 250px; /* Maks bredde*/    
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,27 +44,26 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En kasse ligger på gulvet i en heis som akselerer.</p>
-        <p>Gravitasjonskraften på kassa er 200 N.</p>
-        <p>Normalkraften på kassa er 240 N.</p>
-        <p><strong>Hva er riktig om akselerasjonen til heisen?</strong></p>
+        <p>En person faller 5,0 meter ned i vannet.</p>
+        <p> Se bort fra luftmotstand og sett \(g =\) 10 m/s\(^2\).</p>
+        <p><strong>Hvor lang tid tar fallet og med hvor stor fart treffer personen vannet?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) oppover</span>
+                <span>1,0 s og 5,0 m/s</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>2,0 m/s\(^2\) oppover</span>
+                <span>1,0 s og 10 m/s</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) nedover</span>
+                <span>2,0 s og 10 m/s</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>2,0 m/s\(^2\) nedover</span>
+                <span>2,0 s og 20 m/s</span>
             </label>
         </form>
 
@@ -75,8 +71,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="boksheis.png" alt=" " >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="Fall.png" alt="En person som slipper en stein" >
     </div>
 </div>
 

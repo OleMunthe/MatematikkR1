@@ -106,15 +106,27 @@
 <script>
 
 
+
 function velgKategori(kategori) {
+
+    const TOTAL = {
+        Kap2: 12, Kap3: 20, Kap4: 20, Kap5: 13,
+        Kap6: 2, Kap7: 3, Kap8: 2, Kap9: 2
+    };
+
+    const alle = [];
+    for (let i = 1; i <= (TOTAL[kategori] || 1); i++) {
+        alle.push(i);
+    }
+
+    // trekk 10 tilfeldige
+    const tilfeldig = alle.sort(() => Math.random() - 0.5).slice(0, 10);
+
     sessionStorage.setItem("valgtKategori", kategori);
-
-    // Antall oppgaver per kapittel
-    const antall = { Kap2: 12, Kap3: 20, Kap4: 20, Kap5: 13, Kap6: 2, Kap7: 3, Kap8: 2, Kap9: 2, };
-    sessionStorage.setItem("totalOppgaver", antall[kategori] || 1);
-
+    sessionStorage.setItem("aktivtOppgavesett", JSON.stringify(tilfeldig));
     sessionStorage.removeItem("harStartet");
 }
+
 
 </script>
 

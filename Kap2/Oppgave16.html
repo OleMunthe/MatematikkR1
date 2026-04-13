@@ -15,13 +15,10 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 250px; /* Maks bredde*/    
+    max-width: 550px; /* Maks bredde*/    
 }
 </style>
 </head>
-
-
-
 
 
 <body>
@@ -47,27 +44,29 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En kasse ligger på gulvet i en heis som akselerer.</p>
-        <p>Gravitasjonskraften på kassa er 200 N.</p>
-        <p>Normalkraften på kassa er 240 N.</p>
-        <p><strong>Hva er riktig om akselerasjonen til heisen?</strong></p>
+        <p>En ball slippes fra ro fra en høy bygning.</p>
+        <p> Akselerasjonen til ballen, målt i m/s\(^2\), er</p>
+        $$
+            a = 10 - 2,5v^2
+        $$
+        <p><strong>Hva er den maksimale farten, terminalfarten, ballen kan få?</strong></p>
 
         <form id="quiz">
             <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) oppover</span>
-            </label>
-            <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>2,0 m/s\(^2\) oppover</span>
+                <span>2,0 m/s</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) nedover</span>
+                <span>4,0 m/s</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>2,0 m/s\(^2\) nedover</span>
+                <span>10 m/s</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>Det er ingen teoretisk maksimalfart.</span>
             </label>
         </form>
 
@@ -75,8 +74,8 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="boksheis.png" alt=" " >
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="steinslipp.png" alt="En person som slipper en stein" >
     </div>
 </div>
 

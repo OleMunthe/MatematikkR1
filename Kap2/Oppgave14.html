@@ -15,7 +15,7 @@
 <style>
 img {
        max-height: 300px; /* Maks høyde */
-    max-width: 250px; /* Maks bredde*/    
+    max-width: 400px; /* Maks bredde*/    
 }
 </style>
 </head>
@@ -47,27 +47,31 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>En kasse ligger på gulvet i en heis som akselerer.</p>
-        <p>Gravitasjonskraften på kassa er 200 N.</p>
-        <p>Normalkraften på kassa er 240 N.</p>
-        <p><strong>Hva er riktig om akselerasjonen til heisen?</strong></p>
+        <p>En astronaut står på månen og kaster en stein vertikalt opp.</p>
+
+        <p>Høyden til steinen etter \(t\) sekunder er</p>
+        $$
+            h(t) = -0,80t^2 + 5,0t + 1,0
+        $$
+        
+        <p><strong>Hvor stor er absoluttverdien til akselerasjonen til steinen?</strong></p>
 
         <form id="quiz">
             <label class="svar">
                 <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) oppover</span>
+                <span>5,0 m/s\(^2\)</span>
+            </label>
+            <label class="svar">
+                <input type="radio" name="svar" value="feil">
+                <span>0,80 m/s\(^2\)</span>
             </label>
             <label class="svar">
                 <input type="radio" name="svar" value="riktig">
-                <span>2,0 m/s\(^2\) oppover</span>
+                <span>1,6 m/s\(^2\)</span>
             </label>
             <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>1,0 m/s\(^2\) nedover</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>2,0 m/s\(^2\) nedover</span>
+                <input type="radio" name="svar" value="riktig">
+                <span>10 m/s\(^2\)</span>
             </label>
         </form>
 
@@ -75,9 +79,10 @@ img {
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="boksheis.png" alt=" " >
+    <div class="box" style="display: grid; place-items: center;">
+    <img src="astro.png" alt="Mann som kaster stein på månen">
     </div>
+
 </div>
 
 
