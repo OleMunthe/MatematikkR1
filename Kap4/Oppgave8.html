@@ -3,24 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
 
 <body>
 
@@ -37,47 +29,42 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En tømmerstokk med masse \(m\) blir trukket med en konstant fart en strekning \(s\) av et tau bortover et horisontalt underlag. 
-            Vinkelen mellom tauet og underlaget er \(\alpha\). Snordraget i tauet er \(F\).</p>
-        
-        <p><strong>Hvor stort arbeid gjør tauet på tømmerstokken?</strong></p>
+        <p>Et plan er gitt ved</p>
+
+        $$
+                    x - 2y - 5z = 10
+        $$
+
+
+        <p><strong>I hvilket punkt skjærer planet \(y\)-aksen?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
-                <input type="radio" name="svar" value="riktig">
-                <span>\(F \cdot s \cdot \cos \alpha\)</span>
-            </label>
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>0</span>
+                <span>\( (0, -2, 0) \)</span>
             </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \)</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>\(F \cdot s \cdot \sin \alpha\)</span>
-            </label>
-        </form>
 
-        <div id="resultat"></div>
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( (0, 2, 0) \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>\( (0, -5, 0) \)</span>
+            </label>
+
+                        <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( (0, 5, 0) \)</span>
+            </label>
+
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="dino.png" alt="En dinosaur" >
-    </div>
 </div>
-
 
 </body>
 </html>

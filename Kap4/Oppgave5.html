@@ -3,24 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 320px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
 
 <body>
 
@@ -37,46 +29,33 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En person med masse 100 kg dødser fra 5'metern.</p>
-        <p>Sett \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stort arbeid gjør gravitasjonen på personen?</strong></p>
+        <p>Gitt tre punkter \(A\), \(B\) og \(C\).</p>
+
+
+        <p><strong>Hva gir utregningen \( \overrightarrow{AB} \times \overrightarrow{AC} \)?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
-                <input type="radio" name="svar" value="riktig">
-                <span>5,0 kJ</span>
-            </label>
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>5,0 kN</span>
+                <span>Arealet av trekanten \(ABC\)</span>
             </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,50 kJ</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="riktig">
-                <span>0,50 kN</span>
-            </label>
-        </form>
 
-        <div id="resultat"></div>
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>En vektor som står 90 grader opp fra planet punktene ligger i.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>Arealet et parallellogram \(ABCD\)</span>
+            </label>
+
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="5ern5.png" alt="En som dødser fra 5ern" >
-    </div>
 </div>
-
 
 </body>
 </html>

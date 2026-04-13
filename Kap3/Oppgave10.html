@@ -3,26 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 250px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
-
-
 
 <body>
 
@@ -39,46 +29,40 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En kasse med masse 20 kg ligger på gulvet i en heis som akselerer nedover med en akselerasjon 2,0 m/s\(^2\).</p>
-        <p>Bruk \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stor er normalkraften på kassa?</strong></p>
+        $$
+                2 \sin x + \sqrt{3} = 0 \;\;\;,\;\;\; x \in [0\;,\; 2\pi]
+        $$
+
+        <p><strong>Hva er en fullstendig løsning av likningen?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  x = 60° \;\; \vee \;\; x = 120° \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  x = 30° \;\; \vee \;\; x = 150° \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  x = 60° \;\; \vee \;\; x = 300° \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>160 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>240 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>200 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>40 N</span>
+                <span>\(  x = 240° \;\; \vee \;\; x = 300° \)</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="boksheisned.png" alt="En person som slipper en stein" >
-    </div>
 </div>
-
 
 </body>
 </html>

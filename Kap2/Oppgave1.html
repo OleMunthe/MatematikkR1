@@ -3,23 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
-}
-</style>
 </head>
-
 
 <body>
 
@@ -36,46 +29,42 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En stein slippes fra ro fra en høy bygning.</p>
-        <p> Se bort fra luftmotstand og sett \(g =\) 10 m/s\(^2\).</p>
-        <p><strong>Hvor stor er farten til steinen etter 3,0 sekunder?</strong></p>
+        <p>Gitt følgende integral:</p>
+
+        $$
+            \int x^2 dx
+        $$
+
+        <p><strong>Hva er løsningen av integralet?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>30 m/s</span>
+                <span>\( \frac{x^3}{3} + C \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>3,3 m/s</span>
+                <span>\( \frac{x^2}{2} + C \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>90 m/s</span>
+                <span>\( \frac{x^3}{2} + C \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>3,0 m/s</span>
+                <span>\( 2x + C \)</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-   <div class="box" style="display: grid; place-items: center;">
-        <img src="steinslipp.png" alt="En person som slipper en stein" >
-    </div>
 </div>
-
 
 </body>
 </html>

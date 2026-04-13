@@ -3,26 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-height: 300px;
+    max-width: 450px;
 }
 </style>
 </head>
-
-
-
-
 
 <body>
 
@@ -39,46 +35,39 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En ishocheypuck med masse 170 g får farten 1,0 m/s. Den glir 10 m bortover isen før den stopper.</p>
-        <p>Se bort fra luftmotstand.</p>
-        <p><strong>Hvor stort er friksjonstallet mellom underlaget og pucken?</strong></p>
+        <p><strong>Hva er et funksjonsuttrykk for grafen?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( h(x) = 3 \sin\left( \frac{\pi}{2} \left(  x - 3\right) \right) + \frac{1}{2} \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>0,0051</span>
+                <span>\( h(x) = \frac{3}{2} \sin\left( \frac{\pi}{2} \left(  x - 3\right) \right) + \frac{1}{2} \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>0,87</span>
+                <span>\( h(x) = \frac{3}{2} \sin\left( \frac{\pi}{2} x \right) + \frac{1}{2} \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>0,51</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>0,0087</span>
+                <span>\( h(x) = 3 \sin\left( \frac{\pi}{2} x \right) + \frac{1}{2} \)</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="puck.png" alt="En ishockeypuck" >
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="sinGraf3.png" alt="">
     </div>
 </div>
-
 
 </body>
 </html>

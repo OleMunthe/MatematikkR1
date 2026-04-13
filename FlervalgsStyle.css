@@ -2,7 +2,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
+    -webkit-tap-highlight-color: transparent;
 }
+
 a {
     display: inline-block;
     margin-bottom: 15px;
@@ -11,10 +13,12 @@ a {
     font-weight: bold;
 }
 
-/* Progress bar */
+/* STATUS */
+
 .status {
     margin-bottom: 20px;
 }
+
 .progress-bar {
     width: 100%;
     height: 20px;
@@ -22,39 +26,46 @@ a {
     border-radius: 10px;
     overflow: hidden;
 }
+
 .progress {
     height: 100%;
     width: 0%;
     background-color: #060606;
     transition: width 0.5s ease;
 }
+
 .teller {
     margin-top: 5px;
     font-weight: bold;
 }
 
-/* Layout */
+/* LAYOUT */
+
 .container {
     display: flex;
     gap: 20px;
 }
+
 .box {
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
-    flex: 1;
 }
 
-/* Spørsmål og svar */
-.box p {
-    margin-bottom: 8px;
+.container .box:first-child {
+    flex: 7;
 }
-#quiz {
-    margin-top: 5px;
+
+.container .box:last-child {
+    flex: 3;
 }
+
+/* SVAR */
+
 #quiz input[type="radio"] {
     display: none;
 }
+
 .svar {
     display: block;
     padding: 12px;
@@ -64,20 +75,31 @@ a {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
 .svar:hover {
     background-color: #f0f8ff;
     border-color: #0077cc;
 }
+
 .svar.riktig {
-    background-color: #d4edda; /* grønn */
+    background-color: #d4edda;
     border-color: #28a745;
     color: #155724;
 }
+
 .svar.feil {
-    background-color: #f8d7da; /* rød */
+    background-color: #f8d7da;
     border-color: #dc3545;
     color: #721c24;
 }
+
+/* VISUELL DISABLE */
+
+.svar[style*="pointer-events: none"] {
+    opacity: 0.6;
+}
+
+/* KNAPPER */
 
 button {
     margin-top: 10px;
@@ -86,16 +108,40 @@ button {
     cursor: pointer;
 }
 
-#resultat {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
 #neste {
     display: none;
 }
 
+/* BILDER */
+
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-height: 300px;
+    max-width: 550px;
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container .box {
+        width: 100%;
+    }
+
+    .box {
+        padding: 15px;
+    }
+
+    .svar {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }

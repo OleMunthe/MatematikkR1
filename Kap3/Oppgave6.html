@@ -3,26 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
-
-
 
 <body>
 
@@ -39,47 +29,42 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>Per og Kari står i ro på et veldig glatt underlag, tilnærmet uten friksjon.</p>
-        <p>Per har masse 100 kg og Kari har masse 50 kg.</p>
-        <p>Kari dytter Per med en horisontal kraft på 50 N</p>
-        <p><strong>Hvor stor er motkraften som virker tilbake på Kari fra Per?</strong></p>
+        <p>Funksjonen \(f\) er gitt ved</p>
+
+        $$
+                f(x) = 2 \sin x  + 5
+        $$
+
+        <p><strong>Hva er den minste funksjonsverdien til \(f\)?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
-                <input type="radio" name="svar" value="riktig">
-                <span>50 N</span>
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="right">
+                <span>\( -3 \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>100 N</span>
+                <span>\( -2 \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>25 N</span>
+                <span>\( 2 \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>33 N</span>
+                <span>\( 3 \)</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="KariDytt.png" alt="En person som slipper en stein" >
-    </div>
 </div>
-
 
 </body>
 </html>

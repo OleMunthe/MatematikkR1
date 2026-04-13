@@ -3,26 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 300px; /* Maks bredde*/    
+    max-height: 300px;
+    max-width: 450px;
 }
 </style>
 </head>
-
-
-
-
 
 <body>
 
@@ -39,48 +35,39 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En mann med masse 80 kg står i ro i en heis.</p>
-        <p>Mannen holder en koffert med masse 5,0 kg i hånda.</p>
-        <p>Heisen akselerer oppover med 2,0 m/s\(^2\).</p>
-        <p>Bruk \(g\) = 10 m/s\(^2\).</p>
-        <p><strong>Hvor stor er kraften fra hånda til mannen på kofferten?</strong></p>
+        <p><strong>Hva er et funksjonsuttrykk for grafen?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>50 N</span>
-            </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>40 N</span>
-            </label>
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>60 N</span>
+                <span>\(  f(x) = 3 \sin\left( \frac{2\pi}{3} (x - 2)  \right) + 1 \)</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>55 N</span>
+                <span>\(  f(x) = 3 \sin\left( \frac{2\pi}{3} (x + 2)  \right) + 1 \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  f(x) = 3 \sin\left( \frac{\pi}{3} (x - 2)  \right) + 1 \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  f(x) = 3 \sin\left( \frac{\pi}{3} (x + 2)  \right) + 1 \)</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="koffertMann.png" alt="En mann med koffert" >
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="sineks.png" alt="">
     </div>
 </div>
-
 
 </body>
 </html>

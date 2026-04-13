@@ -3,26 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
-
-
 
 <body>
 
@@ -39,46 +29,38 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En bil starter fra ro. I løpet av 10 sekunder har den kjørt 250 meter og fått farten 75 m/s.</p>
-        
-        <p><strong>Hvor stor er gjennomsnittsfarten til bilen?</strong></p>
+        <p>Gitt følgende integral:</p>
+
+        $$
+            \int 2x \cdot e^x \; dx
+        $$
+
+        <p><strong>Hvilken metode egner seg best for å løse integralet?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>25 m/s</span>
+                <span>delvis integrasjon</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>7,5 m/s</span>
+                <span>variabelbytte</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>37,5 m/s</span>
+                <span>delbrøkoppspalting</span>
             </label>
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>3,3 m/s</span>
-            </label>
+
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="racer.png" alt="En racerbil" >
-    </div>
 </div>
-
 
 </body>
 </html>
