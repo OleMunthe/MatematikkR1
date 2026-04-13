@@ -1,4 +1,4 @@
-Åpne C:\Users\ohm\Dropbox\Fysikk\Nettside i Terminal og legg inn følgende:
+Åpne Nettside i Terminal og legg inn følgende:
 
 git add .
 git commit -m "Bla, bla, ... hva som er endret..."
