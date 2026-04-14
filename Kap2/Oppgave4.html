@@ -32,26 +32,21 @@
 <div class="container">
     <div class="box">
         $$
-                f(x) = \ln 2x 
+                \log 2 + \log x =
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \log 2 + \log x  \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( f'(x) = \frac{1}{x} \)</span>
+                <span>\( \log 2x \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = \frac{1}{2x} \)</span>
-            </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = \frac{2}{x} \)</span>
-            </label>
-
- 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

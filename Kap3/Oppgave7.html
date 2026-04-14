@@ -31,34 +31,27 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
-
         $$
-        ... 
+                f(x) = \ln x^3 
         $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>\( f'(x) = \frac{3}{x} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( f'(x) = \frac{1}{3x^3} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( f'(x) = \frac{1}{3x^2} \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

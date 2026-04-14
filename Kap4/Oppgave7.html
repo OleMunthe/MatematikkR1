@@ -31,35 +31,22 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
+        <p>Gitt to vektorer \(\vec{u}\left[1, 2\right]\) og \(\vec{v}\left[3, k\right]\).</p>
 
-        $$
-        ... 
-        $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
+       <p><strong>Bestem \( k \) slik at vektorene er parallelle.</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( -\frac{3}{2} \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>\( 6 \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
-        </form>
+          </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>

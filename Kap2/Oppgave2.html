@@ -31,34 +31,21 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
-
         $$
-        ... 
+                \log (5 \cdot 7) =
         $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>\(  \log 5 + \log 7  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( \log 5 \cdot \log 7 \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

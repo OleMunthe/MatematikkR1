@@ -31,34 +31,27 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
-
         $$
-        ... 
+                f(x) = (x^2 + 3)^3 
         $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>\( f'(x) = 6x(x^2 + 3)^2 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( f'(x) = 3(x^2 + 3)^2 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( f'(x) = 6x \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

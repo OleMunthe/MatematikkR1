@@ -12,12 +12,6 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-    max-height: 300px;
-    max-width: 450px;
-}
-</style>
 </head>
 
 <body>
@@ -37,42 +31,32 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
-
         $$
-        ... 
+                \log 36 = 2\log x
         $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>\(  x = 6  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( x = 18 \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
+                        <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>\( x = \pm 6 \)</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
+
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="..." alt="">
-    </div>
 </div>
 
 </body>

@@ -1,6 +1,6 @@
 Åpne Nettside i Terminal og legg inn følgende:
 
-cd C:\Users\ohm\Dropbox\Fysikk\Nettside
+git remote set-url origin https://github.com/OleMunthe/MatematikkR1.git
 git remote -v "Sjekker at repo er riktig! Sjekk at det stemmer!!!!!!!!!"
 git add .
 git commit -m "Bla, bla, ... hva som er endret..."
