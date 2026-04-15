@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
+<link rel="stylesheet" href="FlervalgsStyle.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +35,15 @@
             min-height: 500px;
         }
 
+        
+        /* 📱 Skjul bakgrunnsbilde på mobil */
+        @media (max-width: 768px) {
+        .hero {
+        background-image: none;
+        background-color: #0877ab; /* valgfri ensfarget bakgrunn */
+        }
+        }
+
         main {
             background: rgba(255, 255, 255, 0.7);
             padding: 20px;
@@ -64,14 +74,14 @@
 
 <div class="hero">
     <main>
-        <h1>Matematikk R1</h1>
+        <h1>R1</h1>
 
         <p><strong>Nedenfor 👇 er flervalgsoppgaver til Matematikk R1. Hver gang du går inn på en av lenkene får du 10 tilfeldige spørsmål fra det valgte emnet.</strong></p>
 
-        <ul>
-            <li><a href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Logaritmer</a></li>
-            <li><a href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjoner</a></li>
-            <li><a href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Vektorer</a></li>
+        <ul class="app-link-list">
+            <li><a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Logaritmer</a></li>
+            <li><a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjoner</a></li>
+            <li><a class="app-link" href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Vektorer</a></li>
         </ul>
 
         <p><strong>

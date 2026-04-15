@@ -145,3 +145,47 @@ img {
         height: auto;
     }
 }
+
+/* 📱 Sørg for at bilder aldri blir bredere enn boksen på mobil */
+@media (max-width: 768px) {
+  .container .box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+
+/* 📱 App‑layout for index‑lenker på mobil */
+@media (max-width: 768px) {
+  .app-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .app-link-list li {
+    margin-bottom: 12px;
+  }
+
+  .app-link {
+    display: block;
+    padding: 14px 16px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066cc;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .app-link:hover,
+  .app-link:active {
+    background-color: #f0f8ff;
+    border-color: #0077cc;
+  }
+}
+``

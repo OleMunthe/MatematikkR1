@@ -44,10 +44,14 @@ function oppdaterStatus() {
     document.getElementById("riktig").textContent = antallRiktig;
     document.getElementById("feil").textContent = antallFeil;
 
-    const prosent = besvart ? Math.round((antallRiktig / besvart) * 100) : 0;
+    const prosent = besvart
+        ? Math.round((antallRiktig / besvart) * 100)
+        : 0;
     document.getElementById("prosent").textContent = prosent;
 
-    const progress = Math.floor((antallRiktig / aktivtSett.length) * 100);
+    const progress = Math.floor(
+        (antallRiktig / aktivtSett.length) * 100
+    );
     document.getElementById("progress").style.width = progress + "%";
 }
 
@@ -59,9 +63,26 @@ function visFerdig() {
     `;
 }
 
+/* ✅ NY: stokker svar i tilfeldig rekkefølge */
+function stokkeSvar() {
+    const quiz = document.getElementById("quiz");
+    if (!quiz) return;
+
+    const svar = Array.from(quiz.children);
+
+    for (let i = svar.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [svar[i], svar[j]] = [svar[j], svar[i]];
+    }
+
+    svar.forEach(el => quiz.appendChild(el));
+}
+
+/* ✅ KALL FØR EVENT LISTENERS */
+stokkeSvar();
+
 document.querySelectorAll(".svar").forEach(label => {
     label.addEventListener("click", () => {
-
         const data = hentData();
 
         // ✅ Kun blokker hvis allerede riktig
@@ -80,7 +101,8 @@ document.querySelectorAll(".svar").forEach(label => {
         if (verdi === "riktig") {
             data.riktige.push(OPPGAVE_ID);
         } else {
-            data.feil[OPPGAVE_ID] = (data.feil[OPPGAVE_ID] || 0) + 1;
+            data.feil[OPPGAVE_ID] =
+                (data.feil[OPPGAVE_ID] || 0) + 1;
         }
 
         lagreData(data);
@@ -108,7 +130,8 @@ function nesteSporsmal() {
         return;
     }
 
-    const neste = gjenstaar[Math.floor(Math.random() * gjenstaar.length)];
+    const neste =
+        gjenstaar[Math.floor(Math.random() * gjenstaar.length)];
     window.location.href = `Oppgave${neste}.html`;
 }
 
@@ -120,4 +143,3 @@ const sluttData = hentData();
 if (sluttData.riktige.length === aktivtSett.length) {
     visFerdig();
 }
-``
