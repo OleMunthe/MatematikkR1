@@ -119,6 +119,33 @@ img {
     max-width: 550px;
 }
 
+
+/* 2x2 grid for bildesvar */
+.bilde-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolonner */
+    gap: 15px;
+}
+
+/* Tilpass hvert svar */
+.bilde-svar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+/* Bildene */
+.bilde-svar img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+
+
+
+
 /* MOBIL */
 
 @media (max-width: 768px) {
@@ -188,4 +215,5 @@ img {
     border-color: #0077cc;
   }
 }
-``
+
+
