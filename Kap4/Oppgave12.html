@@ -31,38 +31,32 @@
 
 <div class="container">
     <div class="box">
-        $$
-                \left( \log (x + 1) \right)^2 = 20
-        $$
+        <p>En linje går gjennom punktene \((1, -2)\) og \((2, 3)\).</p>
+
+       <p><strong>Hva er en parameterfremstilling for linja?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\(  x = 9  \)</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( x = \pm 9  \)</span>
-            </label>
-
-              <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( x = 10^{\sqrt{20}} - 1 \)</span>
+                <span>\( \begin{cases} x = 1 + t \\ y = -2 + 5t \end{cases} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = 9999999999  \)</span>
+                <span>\( \begin{cases} x = 1 + 2t \\ y = 2 + 3t \end{cases} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = 9999999999 \;\;\; \vee \;\;\; x = -10000000001  \)</span>
+                <span>\( \begin{cases} x = 1 + t \\ y = 5 - 2t \end{cases} \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( \begin{cases} x = 2 + t \\ y = 3 - 2t \end{cases} \)</span>
+            </label>
 
-        </form>
+          </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
