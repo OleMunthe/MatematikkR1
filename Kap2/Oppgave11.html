@@ -32,36 +32,25 @@
 <div class="container">
     <div class="box">
         $$
-                \log (x + 1)^2 = 20
+                f(x) = \frac{e^x}{1+x^2} 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\(  x = 9  \)</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( x = \pm 9  \)</span>
-            </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( x = 9999999999  \)</span>
-            </label>
-
-            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( x = 9999999999 \;\;\; \vee \;\;\; x = -10000000001  \)</span>
+                <span>\( f'(x) = \frac{e^x + x^2 e^x - 2xe^x}{(1 + x^2)^2} \)</span>
             </label>
 
-             <label class="svar" tabindex="0">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = 10^{\sqrt{20}} - 1 \)</span>
+                <span>\( f'(x) = \frac{e^x + x^2 e^x + 2xe^x}{(1 + x^2)^2} \)</span>
             </label>
 
-
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = \frac{e^x}{2x} \)</span>
+            </label>
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

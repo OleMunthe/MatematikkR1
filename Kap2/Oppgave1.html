@@ -32,25 +32,29 @@
 <div class="container">
     <div class="box">
         $$
-                \log 10 =
+                f(x) = x^5 + e^{5x} + \ln(5x + 1) 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  1  \)</span>
+                <span>\( f'(x) = 5x^4 + 5e^{5x} + \frac{5}{5x + 1} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( 10 \)</span>
+                <span>\( f'(x) = 5x^4 + 5e^{4x} + \frac{5}{5x + 1} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  e  \)</span>
+                <span>\( f'(x) = 5x^4 + 5e^{5x} + \frac{1}{5x + 1} \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = 5x^4 + 5e^{4x} + \frac{1}{5x + 1} \)</span>
+            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

@@ -32,21 +32,22 @@
 <div class="container">
     <div class="box">
         $$
-                a \cdot b^x = c
+                f(x) = x \cdot e^x 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  x = \frac{\ln \left( \frac{c}{a} \right)}{\ln b}  \)</span>
+                <span>\( f'(x) = e^x + x \cdot e^x \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  x = \frac{\ln c}{\ln ab}  \)</span>
+                <span>\( f'(x) = e^x\)</span>
             </label>
 
 
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

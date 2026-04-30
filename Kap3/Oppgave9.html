@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0877ab">
 
-<title>Flervalgsoppgaver R2</title>
+<title>Flervalgsoppgaver R1</title>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -32,22 +32,27 @@
 <div class="container">
     <div class="box">
         $$
-                f(x) = x \cdot e^x 
+                    f(x) = e^{-x^2}
         $$
+
+        <p><strong>Hva er toppunktet til grafen til \(f\)?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( f'(x) = e^x + x \cdot e^x \)</span>
+                <span>\(  \left(  0, 1 \right) \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = e^x\)</span>
+                <span>\(  \left(  1, 0 \right) \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>Grafen har ikke noe toppunkt. </span>
+            </label>
 
- 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

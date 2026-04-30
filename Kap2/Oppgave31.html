@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flervalgsoppgaver</title>
+
+<!-- MathJax -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+       max-height: 300px; /* Maks høyde */
+    max-width: 250px; /* Maks bredde*/    
+}
+</style>
+</head>
+
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="box">
+        <p>Den brune grafen på bildet er grafen til \(f\).</p>
+
+        <p><strong>Hvilken graf kan vise grafen til den deriverte \(f'(x)\)?</strong></p>
+
+<form id="quiz" class="bilde-grid">
+
+   <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="alt1.png" alt=" ">
+        <span> </span> 
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="riktig">
+        <img src="alt2.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="alt3.png" alt=" ">
+        <span> </span>
+    </label>
+
+    <label class="svar bilde-svar">
+        <input type="radio" name="svar" value="feil">
+        <img src="alt4.png" alt=" ">
+        <span> </span>
+    </label>
+
+</form>
+
+        <div id="resultat"></div>
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+   <div class="box" style="display: grid; place-items: center;">
+        <img src="grafen2.png" alt=" " >
+    </div>
+</div>
+
+
+</body>
+</html>

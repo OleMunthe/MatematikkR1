@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0877ab">
+
+<title>Flervalgsoppgaver R2</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+        <p>Bildet viser bevegelsen til et fly, sett ovenfra.</p>
+
+        <p>\(y\)-aksen viser antall km nordover, og \(x\)-aksen viser antall km østover.</p>
+
+        <p>Tiden \(t\) måles i timer.</p>
+
+        <p><strong>Hvilken parameterfremstilling kan beskrive bevegelsen?</strong></p>
+
+        <form id="quiz">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>\(  \begin{cases} x = 120 + 300 t \\ y = 60 + 100 t \end{cases} \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \begin{cases} x = 60 + 300 t \\ y = 60 + 100 t \end{cases} \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \begin{cases} x = 120 + 100 t \\ y = 60 + 300 t \end{cases} \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \begin{cases} x = 60 + 100 t \\ y = 120 + 300 t \end{cases} \)</span>
+            </label>
+        </form>
+
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="fly.png" alt="">
+    </div>
+</div>
+
+</body>
+</html>

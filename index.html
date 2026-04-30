@@ -76,17 +76,38 @@
     <main>
         <h1>R1</h1>
 
-        <p><strong>Nedenfor 👇 er flervalgsoppgaver til Matematikk R1. Hver gang du går inn på en av lenkene får du 10 tilfeldige spørsmål fra det valgte emnet.</strong></p>
+        <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Matematikk R1. </strong></p>
+
+       
+
+        <div class="antall-velger">
+  <strong>Før du starter; Velg hvor mange oppgaver du vil ha:</strong><br><br>
+  <label>
+    <input type="radio" name="antallOppgaver" value="10">
+    10
+  </label>
+  <label>
+    <input type="radio" name="antallOppgaver" value="20">
+    20
+  </label>
+  <label>
+    <input type="radio" name="antallOppgaver" value="30">
+    30
+  </label>
+        </div>
+
+         <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
 
         <ul class="app-link-list">
-            <li><a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Logaritmer</a></li>
-            <li><a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjoner</a></li>
+            <li><a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Logaritmer</a></li>
+            <li><a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Derivasjon</a></li>
+            <li><a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjonsdrøfting</a></li>
             <li><a class="app-link" href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Vektorer</a></li>
         </ul>
 
         <p><strong>
-        Trykk deg inn på emnet du vil jobbe med. Riktig svar blir grønt 💚, feil blir rødt 🤬.
-        </strong></p>
+        Riktig svar blir grønt 💚<br>
+        Feil svar blir rødt 🤬</strong></p>
 
         <p><strong>
         Spørsmål du svarer feil på kommer igjen senere.
@@ -107,7 +128,7 @@ function shuffle(array) {
 function velgKategori(kategori) {
 
     const TOTAL = {
-        Kap2: 12, Kap3: 12, Kap4: 12
+        Kap1: 33, Kap2: 33, Kap3: 31, Kap4: 33
     };
 
     // ✅ Nullstill ALT for ny kategori
@@ -135,6 +156,23 @@ function velgKategori(kategori) {
 }
 
 
+
+
+  // Sett default hvis ikke valgt tidligere
+  if (!sessionStorage.getItem("antallOppgaver")) {
+    sessionStorage.setItem("antallOppgaver", "10");
+  }
+
+  // Sett riktig radio som valgt ved lasting
+  document.querySelectorAll("input[name='antallOppgaver']").forEach(radio => {
+    if (radio.value === sessionStorage.getItem("antallOppgaver")) {
+      radio.checked = true;
+    }
+
+    radio.addEventListener("change", () => {
+      sessionStorage.setItem("antallOppgaver", radio.value);
+    });
+  });
 </script>
 
 </body>

@@ -32,26 +32,31 @@
 <div class="container">
     <div class="box">
         $$
-                \log 36 = 2\log x
+                f(x) = 2 \cdot e^{3x} 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  x = 6  \)</span>
+                <span>\( f'(x) = 6e^{3x}\)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = 18 \)</span>
+                <span>\( f'(x) = e^{3x} + 6e^{3x} \)</span>
             </label>
 
-                        <label class="svar" tabindex="0">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = \pm 6 \)</span>
+                <span>\( f'(x) = 5e^{3x} \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = 6e^{2x} \)</span>
+            </label>
 
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

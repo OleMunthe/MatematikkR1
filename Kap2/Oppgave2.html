@@ -32,20 +32,26 @@
 <div class="container">
     <div class="box">
         $$
-                \log (5 \cdot 7) =
+                f(x) = \ln 2x 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  \log 5 + \log 7  \)</span>
+                <span>\( f'(x) = \frac{1}{x} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( \log 5 \cdot \log 7 \)</span>
+                <span>\( f'(x) = \frac{1}{2x} \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = \frac{2}{x} \)</span>
+            </label>
+
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

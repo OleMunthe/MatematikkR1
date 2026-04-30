@@ -32,26 +32,26 @@
 <div class="container">
     <div class="box">
         $$
-                \log 36 = \log 2x
+                f(x) = \ln x^3 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\(  x = 6  \)</span>
+                <input type="radio" name="svar" value="riktig">
+                <span>\( f'(x) = \frac{3}{x} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="riktig">
-                <span>\( x = 18 \)</span>
-            </label>
-
-                        <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( x = \pm 6 \)</span>
+                <span>\( f'(x) = \frac{1}{3x^3} \)</span>
             </label>
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = \frac{1}{3x^2} \)</span>
+            </label>
 
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
