@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Vektorer</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+      background-color: #fafafa;
+    }
+
+    h1, h2, h3 {
+      margin-top: 2em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1em auto;
+    }
+
+    /* ---------- BOKSER ---------- */
+
+    /* Definisjon */
+    .definition {
+      background-color: #ecfeff;
+      border-left: 6px solid #0891b2;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .definition h3::before {
+      content: "📘 ";
+    }
+
+    /* Eksempel */
+    .example {
+      background-color: #ecfdf5;
+      border: 2px solid #10b981;
+      border-left-width: 6px;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 10px;
+    }
+
+    .example h3 {
+      margin-top: 0;
+      color: #065f46;
+    }
+
+    .example h3::before {
+      content: "📌 ";
+    }
+
+    .solution {
+      background-color: #ffffff;
+      border: 1px dashed #34d399;
+      padding: 1em;
+      margin-top: 1em;
+      border-radius: 6px;
+    }
+
+    /* Merk */
+    .note {
+      background-color: #fff7ed;
+      border-left: 6px solid #f59e0b;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .note strong::before {
+      content: "⚠️ ";
+    }
+
+    /* Programkode */
+    .codebox {
+      background-color: #0f172a;
+      color: #e5e7eb;
+      padding: 1.5em;
+      border-radius: 10px;
+      margin: 2em 0;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .codebox::before {
+      content: "💻 Programkode";
+      display: block;
+      color: #34d399;
+      margin-bottom: 0.8em;
+      font-weight: bold;
+    }
+
+    /* ===========================
+   Mobiltilpasning
+   =========================== */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 1em;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Bokser: mindre padding på mobil */
+  .example,
+  .definition,
+  .note,
+  .codebox {
+    padding: 1em;
+    margin: 1.5em 0;
+  }
+
+  /* Bilder: litt større på mobil */
+  img {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Programkode: lettere å lese */
+  .codebox {
+    font-size: 0.9rem;
+  }
+
+}
+
+/* ===== Skriv til PDF-knapp ===== */
+
+.print-button {
+  display: block;
+  margin: 1.5em auto;
+  padding: 0.6em 1.4em;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #059669;
+}
+
+/* Skjul knappen på mobil */
+@media (max-width: 700px) {
+  .print-button {
+    display: none;
+  }
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+}
+
+
+/* ===========================
+   PDF / Utskrift
+   =========================== */
+
+@media print {
+
+  /* Generelle marger for A4 */
+  body {
+    margin: 1.5cm;
+    background: white;
+  }
+
+  /* Overskrifter starter på ny side */
+  h1,
+  h2 {
+    page-break-before: always;
+  }
+
+  /* Aldri del disse boksene over sider */
+  .definition,
+  .example,
+  .note,
+  .codebox {
+    page-break-inside: avoid;
+  }
+
+  /* Tillat at løsninger deles om nødvendig */
+  .solution {
+    page-break-inside: auto;
+  }
+
+  /* Bilder bør heller flyttes enn å deles */
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* PDF skal ikke vise knappen */
+  .print-button {
+    display: none !important;
+  }
+}
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+  </style>
+</head>
+
+<body>
+<a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
+<button class="print-button" onclick="window.print()">
+  🖨️ Skriv til PDF
+</button>
+
+
+<h1>Vektorer, parameterframstillinger og modeller</h1>
+
+<section>
+
+  <p>En vektor har både en størrelse (lengde) og retning.
+  Eksempler på vektorer er hastighet, kraft og akselerasjon.</p>
+
+  <figure>
+    <img src="vekEks.png" alt="Eksempler på vektorer" style="width: 70%;">
+  </figure>
+
+  <p>En vektor forteller oss hvor langt vi går i \(x\)- og \(y\)-retning.</p>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+    <p>Bestem vektoren og lengden av vektoren mellom \(A(-1,3)\) og \(B(4,1)\).</p>
+<div class="solution">
+    <strong>Løsning</strong>
+<figure>
+      <img src="vekEnkel.png" alt="Vektor mellom to punkter" style="width: 60%;">
+    </figure>
+
+    <p>Vi leser av forflytningen:</p>
+
+    \[
+      \overrightarrow{AB}=[\Delta x,\Delta y]=[5,-2]
+    \]
+
+    <p>Vi bruker Pytagoras:</p>
+
+    \[
+      |\overrightarrow{AB}|=\sqrt{5^2+2^2}=\sqrt{29}
+    \]
+  </div>
+  </div>
+
+  <p>En størrelse som ikke er en vektor kaller vi en <strong>skalar</strong>. Lengden av vektoren er et eksempel på en skalar-størrelse.</p>
+
+  <div class="note">
+    <strong>Merk:</strong> Vi bruker firkantparenteser rundt vektorkoordinatene, \([\, ... , ... \,]\).
+  </div>
+
+  
+
+  <div class="example">
+    <h3>Eksempel</h3>
+    <p>Gitt to vektorer \(\vec a=[5,-2]\) og \(\vec b=[2,3]\). Bestem \(\vec a+\vec b\).</p>
+<div class="solution">
+    <strong>Løsning</strong>
+<figure>
+      <img src="vektorsum.png" alt="Vektorsum" style="width: 70%;">
+    </figure>
+
+    \[
+      \vec a+\vec b=[5,-2]+[2,3]=[5+2,-2+3]=[7,1]
+    \]
+  </div>
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+    <p>Vis at diagonalene i et parallellogram skjærer hverandre på midten.</p>
+
+    <div class="solution">
+    <strong>Løsning</strong>
+<figure>
+      <img src="parallellogram.png" alt="Parallellogram" style="width: 70%;">
+    </figure>
+    <p>Hvis \(M\) er midtpunktet på \(AC\), så er</p>
+
+    \[
+      \overrightarrow{AM}
+      =
+      \frac12\overrightarrow{AC}
+      =
+      \frac12(\vec a+\vec b)
+    \]
+
+    <p>Hvis \(N\) er midtpunktet på \(BD\), så er</p>
+
+    \[
+    \begin{aligned}
+      \overrightarrow{AN}
+      &= \overrightarrow{AB}+\frac12\overrightarrow{BD} \\
+      &= \vec a+\frac12(-\vec a+\vec b) \\
+      &= \frac12(\vec a+\vec b)
+      = \overrightarrow{AM}
+    \end{aligned}
+    \]
+
+    <p>Dermed er \(M=N\), altså skjærer diagonalene hverandre på midten.</p>
+  </div>
+  </div>
+
+  
+
+  <div class="definition">
+    <h3>Parallelle vektorer</h3>
+
+    <p>To vektorer \(\vec u=[u_x,u_y]\) og \(\vec v=[v_x,v_y]\) er parallelle dersom</p>
+
+    \[
+      \frac{\Delta y}{\Delta x}
+      =
+      \frac{u_y}{u_x}
+      =
+      \frac{v_y}{v_x}
+    \]
+
+    <p>To parallelle vektorer kan skrives som
+    \(
+      \vec u=k\cdot \vec v
+    \)
+      </p>
+    <p>Dersom \(\vec u\) og \(\vec v\) er parallelle, skriver vi \(\vec u \parallel \vec v\).</p>
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>\(\vec v=[3,6]\parallel \vec u=[1,2]\), fordi
+    \(
+      \vec v=3\vec u
+    \)
+    </p>
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>Bestem \(x\) slik at \(\vec u=[1,-2]\parallel \vec v=[x,3]\).</p>
+
+     <div class="solution">
+    <strong>Løsning</strong>
+\[
+      \frac{-2}{1}=\frac{3}{x}
+      \quad\Rightarrow\quad
+      x=-\frac{3}{2}
+    \]
+  </div>
+  </div>
+
+
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>I et parallellogram \(ABCD\) er \(A(1,2)\), \(B(3,-1)\) og \(C(2,4)\). Bestem koordinatene til \(D\).</p>
+
+    <div class="solution">
+    <strong>Løsning</strong>
+
+     \[
+    \overrightarrow{AD}=\overrightarrow{BC}\;\;\; \Rightarrow \;\;\;  [x-1,y-2]=[-1,5]
+  \]
+  <p>Dermed er \(D(0, 7)\).</p>
+  </div>
+  </div>
+
+  
+  <div class="definition">
+    <h3>Skalarprodukt</h3>
+
+    <p>Skalarprodukt er lengden av den ene vektoren multiplisert med projeksjonen av den andre vektoren ned på den første.</p>
+
+    <figure>
+      <img src="skalarprodukt.png" alt="Skalarprodukt" style="width: 60%;">
+    </figure>
+
+    <p>På vektorform regner vi skalarproduktet slik:</p>
+
+    \[
+      [a_x,a_y]\cdot[b_x,b_y]
+      =
+      a_xb_x+a_yb_y
+    \]
+  </div>
+
+  <p>
+    Fra definisjonen ser vi at skalarproduktet er null dersom vinkelen mellom vektorene er \(90^\circ\).
+    Skalarproduktet er positivt dersom vinkelen er under \(90^\circ\), og negativt dersom vinkelen er over \(90^\circ\).
+  </p>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>Bestem vinkelen mellom vektorene \([3,1]\) og \([-3,3]\).</p>
+
+
+    <div class="solution">
+    <strong>Løsning</strong>
+\[
+    \begin{aligned}
+      \left[3,1\right] \cdot [-3,3]
+      &=
+      |[3,1]|\cdot|[-3,3]|\cdot\cos\alpha\\
+      3 \cdot (-3) + 1 \cdot 3 &= \sqrt{3^2 + 1^2} \cdot \sqrt{(-3)^2 + 3^2} \cdot \cos \alpha \\
+      -6
+      &=
+      \sqrt{10}\cdot\sqrt{18}\cdot\cos\alpha\\
+      \cos\alpha
+      &=
+      -\frac{6}{\sqrt{180}}\\
+      \alpha
+      &\approx 117^\circ
+    \end{aligned}
+    \]
+    </div>
+  </div>
+
+  
+
+  <div class="definition">
+    <h3>Likningen for en sirkel</h3>
+
+    <p>Avstanden fra sentrum \(S(x_0,y_0)\) til et tilfeldig punkt \(P(x,y)\) på sirkelen er lik radien.</p>
+
+    <figure>
+      <img src="sirkel.png" alt="Sirkel" style="width: 70%;">
+    </figure>
+
+    \[
+      |\overrightarrow{SP}|=r
+    \;\;\; \Rightarrow \;\;\;
+      \sqrt{(x-x_0)^2+(y-y_0)^2} = r \;\;\; \Rightarrow \;\;\;
+      (x-x_0)^2+(y-y_0)^2=r^2
+    \]
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>En sirkel har radius 3 og sentrum i punktet \(S(2,1)\). Bestem skjæringspunktene mellom \(x\)-aksen og sirkelen.</p>
+<div class="solution">
+    <strong>Løsning</strong>
+    <p>Likningen for sirkelen er</p>
+
+    \[
+      (x-2)^2+(y-1)^2=3^2
+    \]
+
+    <p>Sirkelen skjærer \(x\)-aksen når \(y=0\):</p>
+
+    \[
+    \begin{aligned}
+      (x-2)^2+(0-1)^2&=3^2\\
+      (x-2)^2+1&=9\\
+      x-2&=\pm\sqrt8\\
+      x&=2\pm\sqrt8
+    \end{aligned}
+    \]
+    </div>
+  </div>
+
+
+  <div class="definition">
+    <h3>Parameterfremstilling</h3>
+    <p>En rett linje gjennom \(P(x_0, y_0)\) med retningsvektor \(\vec{r} = [a, b]\) kan skrives som</p>
+    \[
+    \begin{cases}
+    x=x_0+a \cdot t\\
+    y=-y_0 + b \cdot t
+    \end{cases}
+    \]
+  </div>
+
+
+  <p>
+    En parameterframstilling er en måte å fremstille en linje på ved hjelp av en parameter, \(t\).
+    Som regel representerer \(t\) tid.
+  </p>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>En fisk svømmer på skrått nedover. Etter \(t\) sekunder er posisjonen</p>
+
+    \[
+    \begin{cases}
+    x=1+2t\\
+    y=-2-t
+    \end{cases}
+    \]
+
+    <p>Enhetene på aksene er meter. \(x\) gir posisjonen horisontalt, og \(y\) gir posisjonen vertikalt.</p>
+
+    <figure>
+      <img src="fiskpara.png" alt="Parameterframstilling for fisk" style="width: 70%;">
+    </figure>
+
+    <p>Farten til fisken er den deriverte av posisjonen:</p>
+
+    \[
+      x'(t)=2
+      \quad,\quad
+      y'(t)=-1
+    \]
+
+    \[
+      \vec v=[2,-1]
+      \quad\text{og}\quad
+      |\vec v|=\sqrt{2^2+(-1)^2}=\sqrt5
+    \]
+
+    <p>Fisken svømmer på skrått nedover med farten \(\sqrt5\) m/s.</p>
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>To linjer er gitt ved</p>
+
+    \[
+    l=
+    \begin{cases}
+    x=1+2t\\
+    y=3-4t
+    \end{cases}
+    \quad\text{og}\quad
+    m=
+    \begin{cases}
+    x=3t\\
+    y=1+2t
+    \end{cases}
+    \]
+
+    <p>Bestem skjæringspunktet mellom linjene.</p>
+<div class="solution">
+    <strong>Løsning</strong>
+    <p>Vi bytter parameteren på linjen \(m\) til \(s\), fordi linjene ikke nødvendigvis er i samme punkt for samme \(t\)-verdi.</p>
+
+    \[
+    \begin{aligned}
+      1+2t&=3s\\
+      3-4t&=1+2s
+    \end{aligned}
+    \]
+
+    <p>Fra den første likningen får vi</p>
+
+    \[
+      t=\frac{3s-1}{2}
+    \]
+
+    <p>Setter vi dette inn i den andre likningen, får vi</p>
+
+    \[
+    \begin{aligned}
+      1+2s&=3-4\cdot\frac{3s-1}{2}\\
+      1+2s&=3-6s+2\\
+      8s&=4\\
+      s&=\frac12
+    \end{aligned}
+    \]
+
+    <p>Vi setter \(s=\frac12\) inn i linjen \(m\):</p>
+
+    \[
+      \left(\frac32,2\right)
+    \]
+
+    <figure>
+      <img src="interc.png" alt="Skjæring mellom to linjer" style="width: 70%;">
+    </figure>
+    </div>
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>En linje og en sirkel er gitt ved</p>
+
+    \[
+    l=
+    \begin{cases}
+    x=1+2t\\
+    y=3-4t
+    \end{cases}
+    \quad\text{og}\quad
+    (x-1)^2+(y-3)^2=5
+    \]
+
+    <p>Bestem skjæringspunktene mellom linjen og sirkelen.</p>
+<div class="solution">
+    <strong>Løsning</strong>
+    <p>Vi setter \(x\) og \(y\) fra linjen inn i sirkelen:</p>
+
+    \[
+    \begin{aligned}
+      (1+2t-1)^2+(3-4t-3)^2&=5\\
+      (2t)^2+(-4t)^2&=5\\
+      4t^2+16t^2&=5\\
+      20t^2&=5\\
+      t^2&=\frac14\\
+      t&=\pm\frac12
+    \end{aligned}
+    \]
+
+    <p>Vi setter \(t\)-verdiene inn i linjen:</p>
+
+    \[
+    \begin{cases}
+    x=1+2\cdot\left(\pm\frac12\right)=2 \;\vee\; 0\\
+    y=3-4\cdot\left(\pm\frac12\right)=1 \;\vee\; 5
+    \end{cases}
+    \]
+
+    <p>Skjæringspunktene er \((2,1)\) og \((0,5)\).</p>
+
+    <figure>
+      <img src="sirkel13.png" alt="Skjæring mellom linje og sirkel" style="width: 70%;">
+    </figure>
+  </div>
+  </div>
+
+
+<div class="definition">
+    <h3>Vektorfunksjon</h3>
+
+    <p>En vektorfunksjon er en vektor fra origo til posisjonen til en partikkel.</p>
+
+    \[
+      \vec r(t)= \left[ x(t), y(t) \right]
+    \]
+    <p>Akkurat som en parameterfremstilling, så gir vektorfunksjoner linjer eller kurver i koordinatsystemet.</p>
+    <p>I praksis kan vi tenke på en vektorfunksjon som et dynamisk punkt; Et punkt som flytter seg når \(t\) endrer seg.</p>
+  </div>
+  
+
+  <div class="definition">
+    <h3>Fart og akselerasjon</h3>
+
+    <p>Fartsvektoren er gitt ved</p>
+
+    \[
+      \vec v(t)=\vec r'(t)
+    \]
+
+    <p>Akselerasjonsvektoren er gitt ved</p>
+
+    \[
+      \vec a(t)=\vec v'(t)=\vec r''(t)
+    \]
+  </div>
+
+  <div class="example">
+    <h3>Eksempel</h3>
+
+    <p>En ball sparkes på skrått. Etter \(t\) sekunder er posisjonen gitt ved</p>
+
+    \[
+      \vec r(t)=[20t,-5t^2+15t]
+    \]
+
+    <p>Enhetene på aksene er meter. Bestem posisjonen, farten og akselerasjonen etter ett sekund.</p>
+
+    <div class="solution">
+    <strong>Løsning</strong>
+    \[
+    \begin{aligned}
+      \vec r(1)&=[20,-5+15]=[20,10]\\
+      \vec r'(t)&=[20,-10t+15]\\
+      \vec v(1)&=[20,5]\\
+      \vec r''(t)&=[0,-10]\\
+      \vec a(1)&=[0,-10]
+    \end{aligned}
+    \]
+
+    <p>Banefarten etter ett sekund er</p>
+
+    \[
+      \sqrt{20^2+5^2}=\sqrt{425}\text{ m/s}
+    \]
+
+    <p>Størrelsen til akselerasjonen er \(10\text{ m/s}^2\).</p>
+
+    <figure>
+      <img src="balle2.png" alt="Ballbane" style="width: 80%;">
+    </figure>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>

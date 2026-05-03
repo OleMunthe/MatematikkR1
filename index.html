@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0877ab">
-    <title>Matematikk R1</title> 
+    <title>Matematikk R2</title> 
 
     <style>
         h1 {
@@ -28,12 +28,10 @@
         }
 
         .hero {
-            background-image: url('TjomeTom.png');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 20px;
-            min-height: 500px;
-        }
+    background-color: #0877ab;
+    padding: 60px 20px;
+    min-height: 500px;
+}
 
         
         /* 📱 Skjul bakgrunnsbilde på mobil */
@@ -67,6 +65,61 @@
         ul li {
             margin-bottom: 10px;
         }
+
+
+
+
+
+
+/* Inkludere for å få med teori */
+        .teori-link {
+  margin-left: 12px;
+  padding: 4px 10px;
+  background-color: #0877ab;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.teori-link:hover {
+  background-color: #055f88;
+}
+
+/* Skjul teori-lenker på mobil */
+@media (max-width: 768px) {
+  .teori-link {
+    display: none;
+  }
+}
+
+.app-link-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.app-link-list li {
+  margin-bottom: 14px;
+}
+
+.app-link {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #ffffff;
+  color: #0877ab;
+  border: 2px solid #0877ab;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  min-width: 220px;
+  text-align: center;
+}
+
+.app-link:hover {
+  background-color: #0877ab;
+  color: white;
+}
     </style>
 </head>
 
@@ -76,9 +129,9 @@
     <main>
         <h1>R1</h1>
 
-        <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Matematikk R1. </strong></p>
+         <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Matematikk R1. </strong></p>
 
-       
+        <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
 
         <div class="antall-velger">
   <strong>Før du starter; Velg hvor mange oppgaver du vil ha:</strong><br><br>
@@ -94,16 +147,31 @@
     <input type="radio" name="antallOppgaver" value="30">
     30
   </label>
-        </div>
+</div>
 
          <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
 
-        <ul class="app-link-list">
-            <li><a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Logaritmer</a></li>
-            <li><a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Derivasjon</a></li>
-            <li><a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjonsdrøfting</a></li>
-            <li><a class="app-link" href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Vektorer</a></li>
-        </ul>
+<ul class="app-link-list">
+  <li>
+    <a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Logaritmer</a>
+    <a class="teori-link" href="./Kap1/Teori.html">Teori</a>
+  </li>
+
+  <li>
+    <a class="app-link" href="./Kap2/Oppgave1.html" onclick="velgKategori('Kap2')">Derivasjon</a>
+    <a class="teori-link" href="./Kap2/Teori.html">Teori</a>
+  </li>
+
+  <li>
+    <a class="app-link" href="./Kap3/Oppgave1.html" onclick="velgKategori('Kap3')">Funksjonsdrøfting</a>
+    <a class="teori-link" href="./Kap3/Teori.html">Teori</a>
+  </li>
+
+  <li>
+    <a class="app-link" href="./Kap4/Oppgave1.html" onclick="velgKategori('Kap4')">Vektorer</a>
+    <a class="teori-link" href="./Kap4/Teori.html">Teori</a>
+  </li>
+</ul>
 
         <p><strong>
         Riktig svar blir grønt 💚<br>

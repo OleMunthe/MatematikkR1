@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Vekstfart</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+      background-color: #fafafa;
+    }
+
+    h1, h2, h3 {
+      margin-top: 2em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1em auto;
+    }
+
+    /* ---------- BOKSER ---------- */
+
+    /* Definisjon */
+    .definition {
+      background-color: #ecfeff;
+      border-left: 6px solid #0891b2;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .definition h3::before {
+      content: "📘 ";
+    }
+
+    /* Eksempel */
+    .example {
+      background-color: #ecfdf5;
+      border: 2px solid #10b981;
+      border-left-width: 6px;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 10px;
+    }
+
+    .example h3 {
+      margin-top: 0;
+      color: #065f46;
+    }
+
+    .example h3::before {
+      content: "📌 ";
+    }
+
+    .solution {
+      background-color: #ffffff;
+      border: 1px dashed #34d399;
+      padding: 1em;
+      margin-top: 1em;
+      border-radius: 6px;
+    }
+
+    /* Merk */
+    .note {
+      background-color: #fff7ed;
+      border-left: 6px solid #f59e0b;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .note strong::before {
+      content: "⚠️ ";
+    }
+
+    /* Programkode */
+    .codebox {
+      background-color: #0f172a;
+      color: #e5e7eb;
+      padding: 1.5em;
+      border-radius: 10px;
+      margin: 2em 0;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .codebox::before {
+      content: "💻 Programkode";
+      display: block;
+      color: #34d399;
+      margin-bottom: 0.8em;
+      font-weight: bold;
+    }
+
+    /* ===========================
+   Mobiltilpasning
+   =========================== */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 1em;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Bokser: mindre padding på mobil */
+  .example,
+  .definition,
+  .note,
+  .codebox {
+    padding: 1em;
+    margin: 1.5em 0;
+  }
+
+  /* Bilder: litt større på mobil */
+  img {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Programkode: lettere å lese */
+  .codebox {
+    font-size: 0.9rem;
+  }
+
+}
+
+/* ===== Skriv til PDF-knapp ===== */
+
+.print-button {
+  display: block;
+  margin: 1.5em auto;
+  padding: 0.6em 1.4em;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #059669;
+}
+
+/* Skjul knappen på mobil */
+@media (max-width: 700px) {
+  .print-button {
+    display: none;
+  }
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+}
+
+
+/* ===========================
+   PDF / Utskrift
+   =========================== */
+
+@media print {
+
+  /* Generelle marger for A4 */
+  body {
+    margin: 1.5cm;
+    background: white;
+  }
+
+  /* Overskrifter starter på ny side */
+  h1,
+  h2 {
+    page-break-before: always;
+  }
+
+  /* Aldri del disse boksene over sider */
+  .definition,
+  .example,
+  .note,
+  .codebox {
+    page-break-inside: avoid;
+  }
+
+  /* Tillat at løsninger deles om nødvendig */
+  .solution {
+    page-break-inside: auto;
+  }
+
+  /* Bilder bør heller flyttes enn å deles */
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* PDF skal ikke vise knappen */
+  .print-button {
+    display: none !important;
+  }
+}
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+  </style>
+</head>
+
+<body>
+<a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
+<button class="print-button" onclick="window.print()">
+  🖨️ Skriv til PDF
+</button>
+
+
+<h1>Vekstfart og derivasjon</h1>
+
+
+<section>
+
+<div class="definition">
+  <h3>Vekstfart</h3>
+
+  <p>
+    Gjennomsnittlig vekstfart mellom \((a,f(a))\) og \((b,f(b))\) er
+  </p>
+
+  \[
+    \frac{\Delta y}{\Delta x}
+    =
+    \frac{f(b)-f(a)}{b-a}
+  \]
+
+  <p>
+    Momentan vekstfart i et punkt \((a,f(a))\) er definert som
+  </p>
+
+  \[
+    f'(a)
+    =
+    \lim_{h\rightarrow 0}
+    \frac{f(a+h)-f(a)}{h}
+    =
+    \lim_{h\rightarrow 0}
+    \frac{f(a)-f(a-h)}{h}
+  \]
+
+  <p>
+    Den momentane vekstfarten kalles den deriverte i punktet.
+  </p>
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=x^2-3x
+  \]
+
+  <p>
+    Hva er gjennomsnittlig vekstfart mellom \((1,f(1))\) og \((3,f(3))\)?
+  </p>
+
+  <p>
+    Hva er momentan vekstfart når \(x=1\)?
+  </p>
+
+  <div class="solution">
+    <strong>Løsning</strong>
+
+    <img src="vekstNY.png" alt="Vekstfart" style="width: 60%;">
+
+    <p>Momentan vekstfart:</p>
+
+    \[
+    \begin{aligned}
+    \lim_{h\rightarrow 0}
+    \frac{f(1+h)-f(1)}{h}
+    &=
+    \lim_{h\rightarrow 0}
+    \frac{((1+h)^2-3(h+1))-(-2)}{h}\\
+    &=
+    \lim_{h\rightarrow 0}
+    \frac{1+2h+h^2-3h-3+2}{h}\\
+    &=
+    \lim_{h\rightarrow 0}
+    \frac{h^2-h}{h}\\
+    &=
+    \lim_{h\rightarrow 0}(h-1)
+    =
+    -1
+    \end{aligned}
+    \]
+  </div>
+</div>
+
+<div class="definition">
+  <h3>Definisjonen av den deriverte</h3>
+
+  \[
+    f'(x)
+    =
+    \lim_{h\rightarrow 0}
+    \frac{f(x+h)-f(x)}{h}
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  <p>
+    Vis at \(f'(x)=2x\) når \(f(x)=x^2\).
+  </p>
+
+  <div class="solution">
+    <strong>Løsning</strong>
+
+    \[
+    f'(x)
+    =
+    \lim_{h\rightarrow 0}
+    \frac{f(x+h)-f(x)}{h}
+    =
+    \lim_{h\rightarrow 0}
+    \frac{(x+h)^2-x^2}{h}
+    =
+    \lim_{h\rightarrow 0}
+    \frac{x^2+2xh+h^2-x^2}{h}
+    =
+    \lim_{h\rightarrow 0}(2x+h)
+    =
+    2x
+    \]
+  </div>
+</div>
+
+</section>
+
+<section>
+
+<div class="definition">
+  <h3>Grunnleggende derivasjonsregler</h3>
+
+  \[
+  \begin{aligned}
+  (a\cdot x^n)' &= a\cdot n\cdot x^{n-1}\\
+  (\ln x)' &= \frac{1}{x}\\
+  (e^x)' &= e^x
+  \end{aligned}
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+  \begin{aligned}
+  (5x^3+3x+42)' &= 15x^2+3\\
+  (x^2+3\ln(x))' &= 2x+\frac{3}{x}\\
+  (5e^x+3x)' &= 5e^x+3
+  \end{aligned}
+  \]
+</div>
+
+<div class="definition">
+  <h3>Kjerneregelen</h3>
+<p>
+  Hvis en funksjon har en kjerne, skal vi multiplisere med den deriverte av
+  kjernen når vi deriverer.
+</p>
+  \[
+       f'(x) = g'(u) \cdot u'
+  \]
+</div>
+
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=(x^2+3x)^5 = u^5
+  \]
+
+  \[
+    f'(x)=5u^4 \cdot u' =5(x^2+3x)^4\cdot(2x+3)
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=\sqrt{x^2+3x} = \sqrt{u} = u^{\frac{1}{2}}
+  \]
+
+  \[
+    f'(x)= = \frac{1}{2} \cdot u^{-\frac{1}{2}} \cdot u' = \frac{1}{2} \cdot (x^2+3x)^{-1/2} \cdot (2x+3)
+    =
+    \frac{2x+3}{2\sqrt{x^2+3x}}
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=e^{x^2+x} = e^u
+  \]
+
+  \[
+    f'(x)=e^u \cdot u' = e^{x^2+x}(2x+1)
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=\ln(x^2+x) = \ln u
+  \]
+
+  \[
+    f'(x)= \frac{1}{u} \cdot u' =\frac{2x+1}{x^2+x}
+  \]
+</div>
+
+
+<div class="definition">
+  <h3>Produktregelen</h3>
+
+  \[
+    (u\cdot v)' = u'\cdot v + u\cdot v'
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=x^3\cdot \ln x
+  \]
+
+  \[
+    f'(x)=3x^2 \cdot \ln x + x^3 \cdot \frac{1}{x} = 3x^2 \ln x + x^2
+  \]
+</div>
+
+<div class="definition">
+  <h3>Brøkregelen</h3>
+
+  \[
+    \left(\frac{u}{v}\right)'
+    =
+    \frac{u'\cdot v - u\cdot v'}{v^2}
+  \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+
+  \[
+    f(x)=\frac{x^3}{\ln x}
+  \]
+
+  \[
+    f'(x)
+    =
+    \frac{3x^2 \cdot \ln x - x^3 \cdot \frac{1}{x}}{(\ln x)^2}
+    =
+    \frac{3x^2\ln x - x^2}{(\ln x)^2}
+  \]
+</div>
+
+
+</section>
+
+
+
+<section>
+<h2>Numerisk derivasjon</h2>
+
+<p>
+  Numerisk derivasjon innebærer å finne tilnærmingsverdier (ca.-verdier)
+  for den deriverte ved hjelp av formelen
+</p>
+
+\[
+  f'(a)\approx \frac{f(a+h)-f(a)}{h}
+\]
+
+<p>hvor \(h\) er et lite tall.</p>
+
+<div class="codebox">
+<pre>
+def f(x):
+    return -x**3 + 3*x**2 + 9*x + 1
+
+h = 0.01
+
+def Df(x):
+    return (f(x+h) - f(x)) / h
+
+print(Df(1)) # Skriver ut vekstfarten (den deriverte) når x = 1
+</pre>
+</div>
+
+<div class="codebox">
+<pre>
+def f(x):
+    return -x**3 + 3*x**2 + 9*x + 1
+
+h = 0.01
+
+def Df(x):
+    return (f(x+h) - f(x)) / h
+
+x = -10
+
+while x &lt; 10:
+    if Df(x) &lt;= 0 and Df(x+h) &gt; 0:
+        print('Bunnpunkt:', (x, f(x))) # Skriver ut bunnpunkt til grafen
+    if Df(x) &gt;= 0 and Df(x+h) &lt; 0:
+        print('Toppunkt:', (x, f(x))) # Skriver ut toppunkt til grafen
+    x = x + h
+</pre>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+</body>
+</html>
