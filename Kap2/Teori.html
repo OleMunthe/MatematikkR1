@@ -101,12 +101,86 @@
       font-weight: bold;
     }
 
+    .outputbox {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-left: 6px solid #64748b;
+  padding: 1em 1.2em;
+  margin: -1em 0 2em 0;
+  border-radius: 8px;
+  font-family: Consolas, Monaco, monospace;
+  white-space: pre-wrap;
+}
+
+.outputbox::before {
+  content: "🖨️ Utskrift";
+  display: block;
+  font-weight: bold;
+  color: #475569;
+  margin-bottom: 0.5em;
+}
+
+
+.formel-tabell table {
+    border-collapse: collapse;
+    margin: 1rem auto;
+}
+.formel-tabell td {
+    border: 1px solid #999;
+    padding: 18px 28px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.kode-tabell {
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.kode-tabell table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.kode-tabell td {
+    border: 1px solid #999;
+    padding: 12px 16px;
+    vertical-align: top;
+}
+
+.kode-tabell td:first-child {
+    font-weight: bold;
+    white-space: nowrap;
+    width: 22%;
+    background-color: #f8f8f8;
+}
+
+.kode-tabell code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.95em;
+}
+
+.kode-tabell pre {
+    margin: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+
     /* ===========================
    Mobiltilpasning
    =========================== */
 
 @media (max-width: 700px) {
+    .kode-tabell td {
+        padding: 8px 10px;
+    }
 
+    .kode-tabell code,
+    .kode-tabell pre {
+        font-size: 0.85em;
+    }
   body {
     padding: 1em;
     font-size: 1rem;
@@ -132,6 +206,10 @@
     padding: 1em;
     margin: 1.5em 0;
   }
+  .outputbox {
+  padding: 1em;
+  margin: 1.5em 0;
+}
 
   /* Bilder: litt større på mobil */
   img {
@@ -204,6 +282,9 @@
   .codebox {
     page-break-inside: avoid;
   }
+  .outputbox {
+  page-break-inside: avoid;
+}
 
   /* Tillat at løsninger deles om nødvendig */
   .solution {
@@ -224,11 +305,28 @@
   .no-print {
     display: none;
   }
+@page {
+  size: A4;
+  margin: 1.5cm;
+}
+
+@media print {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .print-scale {
+    width: 900px;
+    transform: scale(1);
+    transform-origin: top left;
+  }
 }
   </style>
 </head>
 
 <body>
+<div class="print-scale">
 <a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
 <button class="print-button" onclick="window.print()">
   🖨️ Skriv til PDF
@@ -555,6 +653,6 @@ while x &lt; 10:
 
 
 
-
+</div>
 </body>
 </html>
