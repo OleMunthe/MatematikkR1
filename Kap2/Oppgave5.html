@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
 </head>
 
 <body>
@@ -31,37 +37,38 @@
 
 <div class="container">
     <div class="box">
-        $$
-                f(x) = 2 \cdot e^{3x} 
-        $$
+        <p>Bildet viser fortegnsskjemaet for den deriverte til en funksjon \(f(x)\).</p>
+
+        <p><strong>Når synker grafen til \(f(x)\)?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( f'(x) = 6e^{3x}\)</span>
+                <span>\( -1 < x < 1 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = e^{3x} + 6e^{3x} \)</span>
+                <span>\( x < -1 \;\; \vee \;\; x > 1 \)</span>
+            </label>
+
+             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( x > -1 \;\; \vee \;\; x > 1 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = 5e^{3x} \)</span>
+                <span>\( x < -1 \;\; \vee \;\; x < 1 \)</span>
             </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = 6e^{2x} \)</span>
-            </label>
-
- 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="fortegnDer.png" alt="">
+    </div>
 </div>
 
 </body>

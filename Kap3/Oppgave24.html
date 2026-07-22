@@ -12,12 +12,6 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-    max-height: 300px;
-    max-width: 450px;
-}
-</style>
 </head>
 
 <body>
@@ -37,43 +31,35 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Gitt funksjonen</p>
-
         $$
-                f(x) = e^{-x} + 1 \;\;\;,\;\;\; D_f = \mathbb{R}
+            f(x) =x \cdot 3^x
         $$
-
-        <p><strong>Hva er definisjonsmengden og verdimengden til den omvendte funksjonen, \(f^{-1}(x)\)?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( D_f = \langle 1, \rightarrow \rangle  \text{ og } V_f = \mathbb{R} \)</span>
+                <span>\(f'(x) =3^x + x ln(3)\cdot 3^x\)</span>
+            </label>
+
+               <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(f'(x) =3^x + x \cdot 3^x\)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( D_f = \langle \leftarrow, 1 \rangle  \text{ og } V_f = \mathbb{R} \)</span>
+                <span>\(f'(x) =ln(3)\cdot 3^x\)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( D_f =  \mathbb{R}  \text{ og } V_f = \mathbb{R} \)</span>
+                <span>\(f'(x) = 3^x\)</span>
             </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\( D_f = \langle \leftarrow, -1 \rangle  \text{ og } V_f = \mathbb{R} \)</span>
-            </label>
-
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="alt2.png" alt="">
-    </div>
 </div>
 
 </body>

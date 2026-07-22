@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
 </head>
 
 <body>
@@ -31,31 +37,38 @@
 
 <div class="container">
     <div class="box">
-        $$
-                f(x) = \frac{e^x}{1+x^2} 
-        $$
+        <p>Bildet viser fortegnsskjemaet for den deriverte til en tredjegradsfunksjon \(f(x)\).</p>
+
+        <p><strong>Hvilket alternativ kan være funksjonsuttrykket til grafen til \(f(x)\)?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( f'(x) = \frac{e^x + x^2 e^x - 2xe^x}{(1 + x^2)^2} \)</span>
+                <span>\(f(x) = -x^3 + 3x \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = \frac{e^x + x^2 e^x + 2xe^x}{(1 + x^2)^2} \)</span>
+                <span>\(f(x) = x^3 - x \)</span>
+            </label>
+
+             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(f(x) = x^3 - 3x \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = \frac{e^x}{2x} \)</span>
+                <span>\(f(x) = -x^3 + x \)</span>
             </label>
- 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="fortegnDer2.png" alt="">
+    </div>
 </div>
 
 </body>

@@ -37,31 +37,37 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Gitt funksjonen \(f\) på bildet.</p>
-
-        <p>Funksjonen \(g(x)\) er den omvendte funksjonen til \(f\).</p>
-
-        <p><strong>Hva er definisjons- og verdimengden til \(g\)?</strong></p>
+        $$
+            \lim_{x \rightarrow 4^-} f(x) = 
+        $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>4</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( D_g = \langle -1\text{,}1 \,,\, \rightarrow \rangle \;\;\;,\;\;\; V_g = \langle -1 \,,\, \rightarrow \rangle  \)</span>
+                <span>0</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( D_g = \langle -1 \,,\, \rightarrow \rangle \;\;\;,\;\;\; V_g = \langle -1\text{,}1 \,,\, \rightarrow \rangle  \)</span>
+                <span>ikke definert</span>
             </label>
 
-
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>3</span>
+            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
     <div class="box" style="display: grid; place-items: center;">
-        <img src="omv2.png" alt="">
+        <img src="grensegraf.png" alt="">
     </div>
 </div>
 

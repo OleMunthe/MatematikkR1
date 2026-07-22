@@ -32,26 +32,29 @@
 <div class="container">
     <div class="box">
         $$
-                f(x) = e^{3x} 
+                f(x) = \sqrt{x} 
         $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( f'(x) = 3e^{3x}\)</span>
+                <span>\( f'(x) = \frac{1}{2\sqrt{x}} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = 3e^{2x} \)</span>
+                <span>\( f'(x) = \frac{1}{\sqrt{x}} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\( f'(x) = e^{3x} \)</span>
+                <span>\( f'(x) = x^{\frac{1}{2}} \)</span>
             </label>
 
- 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\( f'(x) = \frac{x^{\frac{1}{2}}}{2} \)</span>
+            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

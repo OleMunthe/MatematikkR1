@@ -3,11 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Funksjonsdrøfting</title>
-
-  <!-- MathJax -->
+  <title>Sammensatte funksjoner</title>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -33,14 +30,22 @@
     .definition {
       background-color: #ecfeff;
       border-left: 6px solid #0891b2;
-      padding: 1.2em 1.5em;
-      margin: 2em 0;
+     padding: 1em 1.5em 0.7em 1.5em;
+      margin: 0em 0;
       border-radius: 8px;
     }
 
     .definition h3::before {
       content: "📘 ";
     }
+
+    .definition h3 {
+  margin-top: 0;
+}
+
+.definition > :last-child {
+  margin-bottom: 0;
+}
 
     /* Eksempel */
     .example {
@@ -108,7 +113,7 @@
   border-left: 6px solid #64748b;
   padding: 1em 1.2em;
   margin: -1em 0 2em 0;
-  border-radius: 8px;
+  border-radius: 0.5px;
   font-family: Consolas, Monaco, monospace;
   white-space: pre-wrap;
 }
@@ -118,7 +123,7 @@
   display: block;
   font-weight: bold;
   color: #475569;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.1em;
 }
 
 
@@ -321,714 +326,208 @@
     transform: scale(1);
     transform-origin: top left;
   }
-}
+}}
   </style>
 </head>
-
 <body>
 <div class="print-scale">
 <a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
-  <button class="print-button" onclick="window.print()">
-  🖨️ Skriv til PDF
-</button>
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
 
-<h1>Funksjonsdrøfting</h1>
+<h1>Sammensatte funksjoner</h1>
 
-<section>
-
-<div class="definition">
-  <h3>Tangent</h3>
-<p>  Tangenten i et punkt er en rett linje \( y = ax +b \) som tangerer (<em>"toucher"</em>) grafen.</p>
-<p>Stigningstallet \(a\) er den deriverte i punktet.</p>
-</div>
-
-
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>
-    Bestem likningen til tangenten i punktet \((2,f(2))\) for funksjonen
-  </p>
-
-  \[
-    f(x)=-x^3+3x^2-x+1
-  \]
-
-  <div class="solution">
-    <strong>Løsning</strong>
-
-    <p>Den momentane vekstfarten er</p>
-
-    \[
-      f'(x)=-3x^2+6x-1
-      \quad \rightarrow \quad
-      \underline{f'(2)}
-      =
-      -3\cdot2^2+6\cdot2-1
-      =
-      \underline{-1}
-    \]
-
-    <p>
-      Likningen er dermed \(y=-x+b\).
-    </p>
-
-    <p>
-      Vi finner \(b\) ved å bruke at når \(x=2\), så er
-    </p>
-
-    \[
-      y=f(2)=-2^3+3\cdot2^2-2+1=3
-    \]
-
-    <p>som gir</p>
-
-    \[
-    \begin{aligned}
-    y&=-x+b\\
-    3&=-2+b
-    \quad \rightarrow \quad
-    b=5
-    \quad \rightarrow \quad
-    \underline{y=-x+5}
-    \end{aligned}
-    \]
-  </div>
-</div>
-
-<div class="definition">
-  <h3>Ekstremalpunkt</h3>
-  <p>Grafen til \(f\) har ekstremalpunkt når
-  \(
-    f'(x)=0
-  \).</p>
-
-  <p> Ekstremalpunktet kan være et topp-, bunn- eller terrassepunkt.</p>
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-  Bestem ekstremalpunktene til funksjonen.
-  \[
-    f(x)=2x^3-3x^2-12x+6
-  \]
-
-  <div class="solution">
-    <strong>Løsning</strong>
-        \[
-    f'(x)=6x^2-6x-12 =6(x+1)(x-2) = 0 \;\; \Rightarrow \;\; x = -1 \; \vee \; x = 2
-    \]
-    <p>
-      Ekstremalpunktene er \( (-1, f(-1)) = (-1, 13) \) og \( (2, f(2)) = (2, -14) \).
-    </p>
-  </div>
-</div>
-
-
-<div class="definition">
-  <h3>Monotoniegenskaper</h3>
-
-  <p>
-    Når grafen til en funksjon stiger og når den synker.
-  </p>
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-  Bestem monotoniegenskapene til funksjonen.
-  \[
-    f(x)=2x^3-3x^2-12x+6
-  \]
-
-  <div class="solution">
-    <strong>Løsning</strong>
-        \[
-    f'(x)=6x^2-6x-12
-    =6(x+1)(x-2)
-    \]
-
-    <img src="fortegn42.png" alt="Funksjon med delt forskrift" style="width: 65%;">
-
-    <p>
-      Grafen til \(f\) vokser når \(x&lt;-1\) og \(x&gt;2\), og grafen synker når \(-1&lt;x&lt;2\).
-    </p>
-    <p>
-      Fra monotoniegenskapene ser vi at grafen har et toppunkt i \((-1, f(-1))\) og et bunnpunkt i \((2, f(2))\).
-      </p>
-  </div>
-</div>
-
-
-<div class="definition">
-  <h3>Vendepunkt</h3>
-  <p>Grafen til \(f\) har vendepunkt når
-  \(
-    f''(x)=0
-  \).
-  </p>
-  <p>
-    Vendepunktet er ekstremalpunktet til den deriverte.
-    </p>
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  \[
-    f(x)=-x^3+3x^2-x+1
-  \]
-  Bestem vendepunktet til \(f\).
-
-  <div class="solution">
-    <strong>Løsning</strong>
-  \[
-  f'(x)=-3x^2+6x-1\;\; \Rightarrow \;\;
-  f''(x)=-6x+6=0 \;\; \Rightarrow \;\;  x=1
-  \]
-
-  <p>Vendepunkt er dermed \((1, f(1)) = (1,2)\)</p>
-  </div>
-</div>
-
-
-</section>
-
+<p>Du skal ha kompetanse om</p>
+<ul>
+  <li>derivasjon av omvendte funksjoner</li>
+  <li>derivasjon av \(\ln u\) og \(e^u\)</li>
+  <li>kjerneregelen i derivasjon</li>
+  <li>derivasjon av produkt- og brøkuttrykk</li>
+  <li>eksponentiell og logistisk vekst</li>
+  <li>å lage matematiske modeller fra reelle datasett</li>
+</ul>
 
 <section>
-<h2>Grenseverdier</h2>
-
-I forbindelse med en del funksjonsdrøfting (lengre ned) må vi bruke grenseverdier.
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  \[
-  \begin{aligned}
-  \lim_{x\rightarrow 3}(x+2)
-  &=3+2=5\\[6pt]
-  \lim_{x\rightarrow 2}\frac{x^2-4}{x-2}
-  &=
-  \lim_{x\rightarrow 2}
-  \frac{(x-2)(x+2)}{x-2}\\
-  &=
-  \lim_{x\rightarrow 2}(x+2)
-  =
-  2+2=4\\[6pt]
-  \lim_{x\rightarrow 2}\frac{1}{x-2}
-  &\rightarrow \pm\infty
-  \quad \text{(grensen eksisterer ikke)}\\
-  \lim_{x\rightarrow 2^+}\frac{1}{x-2}
-  &\rightarrow \infty\\
-  \lim_{x\rightarrow 2^-}\frac{1}{x-2}
-  &\rightarrow -\infty\\
-  \lim_{x\rightarrow 2^-}\frac{1}{2-x}
-  &\rightarrow \infty\\
-  \lim_{x\rightarrow \infty}\frac{1}{x-2}
-  &=0\\
-  \lim_{x\rightarrow \infty}\frac{x}{e^x}
-  &=0
-  \quad \text{fordi } x\ll e^x \text{ når } x\rightarrow\infty\\
-  \lim_{x\rightarrow \infty}\frac{e^x}{x}
-  &\rightarrow \infty
-  \quad \text{fordi } x\ll e^x \text{ når } x\rightarrow\infty
-  \end{aligned}
-  \]
-</div>
+<h2>Derivasjon av omvendte funksjoner</h2>
 
 <div class="definition">
-  <h3>L'Hôpital</h3>
-
-  <p>Dersom</p>
-
+  <h3>Derivasjon av omvendte funksjoner</h3>
+  <p>Når \(f\) og \(g\) er omvendte funksjoner gjelder</p>
   \[
-    \lim_{x\rightarrow a} f(x)\rightarrow 0
-    \quad \text{og} \quad
-    \lim_{x\rightarrow a} g(x)\rightarrow 0
+  f'(a) = \frac{1}{g'(b)} \;\;\;\text{ og }\;\;\; g'(b) = \frac{1}{f'(a)} \;\;\;\;,\;\;\;\;\text{hvor } b = f(a)
   \]
-
-  <p>eller</p>
-
-  \[
-    \lim_{x\rightarrow a} f(x)\rightarrow \pm\infty
-    \quad \text{og} \quad
-    \lim_{x\rightarrow a} g(x)\rightarrow \pm\infty
-  \]
-
-  <p>kan vi derivere teller og nevner hver for seg:</p>
-
-  \[
-    \lim_{x\rightarrow a}\frac{f(x)}{g(x)}
-    =
-    \lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
-  \]
+  <img src="omvendtder.png" alt="Derivasjon av omvendte funksjoner" style="width: 60%;">
 </div>
 
 <div class="example">
   <h3>Eksempel</h3>
-
-  \[
-    \lim_{x\rightarrow 2}
-    \frac{x^3-8}{x^2-4}
-    =
-    \lim_{x\rightarrow 2}
-    \frac{3x^2}{2x}
-    =
-    \frac{3\cdot 2^2}{2\cdot 2}
-    =
-    3
-  \]
-</div>
-</section>
-
-
-
-<section>
-<h2>Funksjoner med delt forskrift</h2>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <img src="Delt.png" alt="Funksjon med delt forskrift" style="width: 45%;">
-
-  <p>
-    Funksjonen har et <strong>delingspunkt</strong> når \(x=2\).
-  </p>
-
-  <p>
-    Når vi nærmer oss punktet nedenfra er funksjonsverdien gitt ved
-  </p>
-
-  \[
-    \lim_{x\rightarrow 2^-} f(x)=2
-  \]
-
-  <p>
-    Når vi nærmer oss punktet ovenfra er funksjonsverdien gitt ved
-  </p>
-
-  \[
-    \lim_{x\rightarrow 2^+} f(x)=f(2)=3
-  \]
-</div>
-
-<p>
-  Det finnes mange praktiske situasjoner hvor det er aktuelt å bruke funksjoner
-  med delt forskrift, f.eks. i forbindelse med økonomi eller i fysikk.
-</p>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>Skisse av høydefunksjonen til en ball som spretter:</p>
-
-  <img src="sprettball.png" alt="Sprettball" style="width: 90%;">
-
-  <p>
-    Hver gang ballen treffer bakken får funksjonen et delingspunkt.
-  </p>
-</div>
-</section>
-
-
-
-<section>
-<h2>Kontinuitet</h2>
-
-<p>
-  Kontinuerlige funksjoner er funksjoner som ikke "hopper" i
-  definisjonsområdet; funksjoner vi kan tegne innenfor definisjonsområdet
-  uten å løfte pennen fra arket.
-</p>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>Bestem \(a\) slik at funksjonen nedenfor blir kontinuerlig.</p>
-
-  <img src="deltfun.png" alt="Kontinuitet" style="width: 45%;">
-
-  <div class="solution">
-    <strong>Løsning</strong>
-
-    <p>Uttrykkene for \(f(x)\) må være like i delingspunktet:</p>
-
-    \[
-    \begin{aligned}
-    (2\cdot 1-1)^2 &= \sqrt{1}+a\\
-    1 &= 1+a\\
-    a &= 0
-    \end{aligned}
-    \]
-  </div>
-</div>
-
-
-</section>
-
-
-
-
-
-<section>
-<h2>Deriverbarhet</h2>
-
-<div class="definition">
-  <h3>Deriverbarhet</h3>
-
-  <p>
-    Et delt funksjonsuttrykk er deriverbart i delingspunktet hvis funksjonen
-    er kontinuerlig og hvis stigningstallet er det samme på begge sider av
-    delingspunktet.
-  </p>
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>
-    Bestem \(a\) og \(b\) slik at funksjonen blir deriverbar i delingspunktet.
-  </p>
-
-  <img src="deltfun2.png" alt="Deriverbarhet i delingspunkt" style="width: 45%;">
-
-  <div class="solution">
-    <strong>Løsning</strong>
-
-    <p>For at stigningstallet skal være det samme må</p>
-
-    \[
-    \begin{aligned}
-    (ax+b)' &= \left(\frac{x^2}{2}\right)'\\
-    a &= x\\
-    a &= 2
-    \end{aligned}
-    \]
-
-    <p>For at funksjonen skal være kontinuerlig må</p>
-
-    \[
-    \begin{aligned}
-    2x+b &= \frac{x^2}{2}\\
-    2\cdot2+b &= \frac{2^2}{2}\\
-    b &= 2
-    \end{aligned}
-    \]
-  </div>
-</div>
-
-<div class="note">
-  <strong>Merk:</strong><br>
-  Vi sier at en funksjon er kontinuerlig og deriverbar så lenge den er kontinuerlig og deriverbar innenfor
-  definisjonsområdet. 
-  
-  <br>Funksjonen nedenfor er kontinuerlig og deriverbar, selv om den
-  "hopper" når \(x=-3\), siden funksjonen ikke er definert når \(x=-3\).
-  Definisjonsmengden er \(D_f=\mathbb{R}\setminus\{-3\}\).
-
-  <img src="rasj.png" alt="Rasjonal funksjon" style="width: 45%;">
-</div>
-</section>
-
-
-
-
-
-
-<section>
-<h2>Rasjonale funksjoner</h2>
-
-<p>
-  En rasjonal funksjon er en funksjon der både teller og nevner er en
-  polynomfunksjon.
-</p>
-
-<img src="rasj.png" alt="Rasjonal funksjon" style="width: 45%;">
-
-<div class="definition">
-  <h3>Asymptoter</h3>
-
-  <p>
-    Hvis en rasjonal funksjon har en horisontal, altså vannrett, asymptote er
-    den gitt ved
-  </p>
-
-  \[
-    y=\lim_{x\rightarrow\infty} f(x)
-  \]
-
-  <p>
-    Hvis en rasjonal funksjon har en vertikal, altså loddrett, asymptote er
-    den gitt ved \(x\) = nullpunktet til nevneren.
-  </p>
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>
-    Bestem den horisontale og vertikale asymptoten til funksjonen
-  </p>
-
-  \[
-    f(x)=\frac{4x-8}{x+3}
-  \]
-
-  <div class="solution">
-    <strong>Løsning</strong>
-
-    <p>Vi bruker L'Hôpitals regel for å finne den horisontale:</p>
-
-    \[
-      y=
-      \lim_{x\rightarrow\infty}\frac{4x-8}{x+3}
-      =
-      \lim_{x\rightarrow\infty}\frac{4}{1}
-      =
-      4
-      \quad \text{altså} \quad
-      \underline{y=4}
-    \]
-
-    <p>Den vertikale asymptoten er gitt ved</p>
-
-    \[
-      x+3=0
-      \quad \text{altså} \quad
-      \underline{x=-3}
-    \]
-  </div>
-</div>
-</section>
-
-
-
-
-
-
-
-
-<section>
-<h2>Funksjoner og omvendte funksjoner</h2>
-
-<div class="definition">
-  <h3>Omvendte funksjoner</h3>
-
-  \[
-    f(x)=y \;\;\Rightarrow\;\; g(y)=x
-  \]
-
-  \[
-    f(g(x))=x \quad \text{og} \quad g(f(x))=x
-  \]
-</div>
-
-<div class="example">
-  <h3>Eksempler</h3>
-
-  \[
-  \begin{aligned}
-  f(x)&=e^x,\quad g(x)=\ln x\\
-  f(x)&=x^2,\quad g(x)=\sqrt{x}\\
-  f(x)&=2x,\quad g(x)=\frac{x}{2}
-  \end{aligned}
-  \]
-</div>
-
-<p>
-  Omvendte funksjoner er speilsymmetriske om linjen \(y=x\).
-</p>
-
-<img src="inversEnkel.png" style="width: 45%;">
-
-
-<div class="example">
-  <h3>Eksempel</h3>
-  Bestem den omvendte funksjonen til
-  \[
-    f(x)=3+5e^{x/7}
-  \]
-
-  <div class="solution">
-    <strong>Løsning</strong>
-
-    \[
-    \begin{aligned}
-    y&=3+5e^{x/7}\\
-    y-3&=5e^{x/7}\\
-    \frac{y-3}{5}&=e^{x/7}\\
-    \ln\left(\frac{y-3}{5}\right)&=\frac{x}{7}\\
-    x&=7\ln\left(\frac{y-3}{5}\right)
-    \end{aligned}
-    \]
-
-    \[
-      f^{-1}(x)=7\ln\left(\frac{x-3}{5}\right)
-    \]
-  </div>
-</div>
-
-
-
-
-<div class="definition">
-  <h3>Derivasjon av omvendt funksjon</h3>
-
-  \[
-    g'(y)=\frac{1}{f'(x)}
-    \quad \text{der} \quad y=f(x)
-  \]
-</div>
-
-<div class="example">
-  <h3>Eksempel</h3>
-
-  <p>Gitt \(f(x)=x^2\), og at \(g(x)\) er den omvendte funksjonen til \(f\).</p>
+  <p>Funksjonen \(g\) er den omvendte funksjonen til \(f\), gitt ved</p>
+  \[ f(x) = x^2 \;\;\;,\;\;\; x \geq 0 \]
   <p>Bestem \(g'(9)\).</p>
-<div class="solution">
+  <div class="solution">
     <strong>Løsning</strong>
-
-     \[
-    f(3)=9,\quad f'(x)=2x \;\;\; \Rightarrow \;\;\; g'(9)=\frac{1}{f'(3)}=\frac{1}{6}
-  \]
+    \[
+    9 = f(x) \;\; \rightarrow \;\; \rightarrow 9 = x^2 \;\;\rightarrow\;\;x = 3
+    \]
+    <p>Siden \(f'(x)\) = \(2x\) gir dette</p>
+    \[ g'(9) = \frac{1}{f'(3)} = \frac{1}{2\cdot 3} = \frac{1}{6} \]
   </div>
+</div>
 
+<p>Oppgaven i eksempelet over kunne vi også løst ved å bruke at</p>
+\[ g(x) = \sqrt{x} = x^{\frac{1}{2}} \;\;\rightarrow \;\; g'(x) = \frac{1}{2}x^{-\frac{1}{2}} = \frac{1}{2\sqrt{x}} \]
+<p>og deretter sette inn \(x\) = 9, slik:</p>
+\[ g'(9) = \frac{1}{2\cdot\sqrt{9}} = \frac{1}{2\cdot 3} = \frac{1}{6} \]
+</section>
+
+<section>
+<h2>Derivasjon av ln(\(u\)) og e\(^u\)</h2>
+
+<div class="definition">
+  <h3>Derivasjon av ln(\(u\))</h3>
+  \[ \left(\ln u(x)\right)' = \frac{1}{u(x)}\cdot u'(x) \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>Deriver funksjonen</p>
+  \[ f(x) = \ln(x^3+x) \]
+  <div class="solution">
+    <strong>Løsning</strong>
+    \[ f'(x) = \frac{1}{x^3+x}\cdot(3x^2+1) = \frac{3x^2+1}{x^3+x} \]
+  </div>
+</div>
+
+<div class="definition">
+  <h3>Derivasjon av e\(^u\)</h3>
+  \[ \left(e^{u(x)}\right)' = e^{u(x)}\cdot u'(x) \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>Deriver funksjonen</p>
+  \[ f(x) = e^{x^3+x} \]
+  <div class="solution">
+    <strong>Løsning</strong>
+    \[ f'(x) = e^{x^3+x}\cdot(3x^2+1) \]
+  </div>
 </div>
 </section>
 
+<section>
+<h2>Kjerneregelen</h2>
+<p>Hvis en funksjon har en kjerne, skal vi multiplisere med den deriverte av kjernen når vi deriverer.</p>
+<p>Derivasjonsreglene for ln\(\,u\) og e\(^u\) er eksempler på kjerneregelen</p>
+<p>Vi har også kjerneregelen for funksjoner på formen \(f(x)\) = \(u^n\).</p>
 
+<div class="definition">
+  <h3>Derivasjon av \(u^n\)</h3>
+  \[ \left(u(x)^n\right)' = n\cdot u(x)^{n-1}\cdot u'(x) \]
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>Deriver funksjonen</p>
+  \[ f(x) = \left(x^3+x\right)^5 \]
+  <div class="solution"><strong>Løsning</strong>
+    \[ f'(x) = 5\cdot\left(x^3+x\right)^4\cdot(3x^2+1) \]
+  </div>
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>Deriver funksjonen</p>
+  \[ f(x) = \sqrt{x^2+3x} = \left(x^2+3x\right)^{\frac{1}{2}} \]
+  <div class="solution"><strong>Løsning</strong>
+    \[ f'(x) = \frac{1}{2}\left(x^2+3x\right)^{-\frac{1}{2}}\cdot(2x+3) = \frac{2x+3}{2\sqrt{x^2+3x}} \]
+  </div>
+</div>
+
+<h3>Forklaring/utledning av kjerneregelen</h3>
+<p>Den ordentlige måten å skrive derivert på er</p>
+\[ y'(x) = \frac{\Delta y}{\Delta x} \;\;\;,\;\;\; \text{ hvor } \Delta x \rightarrow 0 \]
+<p>Dette gir</p>
+\[ \underline{\left(u^n\right)'} = \frac{\Delta u^n}{\Delta x} = \frac{\Delta u^n}{\Delta u}\cdot\frac{\Delta u}{\Delta x} = \underline{n\cdot u^{n-1}\cdot u'} \]
+<div class="note"><strong>NB:</strong> Utledningen er litt utenfor kompetansemålene i R1.</div>
+</section>
 
 <section>
-  <h2>Eksponentiell og logistisk vekst</h2>
-
-  <div class="definition">
-    <h3>Eksponentialfunksjoner</h3>
-
-    \[
-      f(x)=a\cdot b^x=a\cdot e^{kx}
-      \quad\text{hvor}\quad
-      k=\ln b
-    \]
-
-    <p>Eksponentialfunksjoner vokser med en fast prosent hver periode.</p>
+<h2>Produkt- og brøkregelen</h2>
+<div class="definition">
+  <h3>Den deriverte av et produkt</h3>
+  \[ \left(u\cdot v\right)' = u'\cdot v + u\cdot v' \]
+</div>
+<div class="example">
+  <h3>Eksempel</h3><p>Deriver funksjonen</p>
+  \[ f(x) = x^3\cdot\ln x \]
+  <div class="solution"><strong>Løsning</strong>
+  \[ f'(x) = u'\cdot v + u\cdot v' = 3x^2\cdot\ln x + x^3\cdot\frac{1}{x} = \underline{3x^2\cdot\ln x+x^2} \]
   </div>
-
-  <p>Når vi skal finne en modell fra et datasett, gjør vi en regresjon:</p>
-
-  <ol>
-    <li>Legg tallene inn i <strong>Regneark</strong>.</li>
-    <li>Velg <strong>Regresjonsanalyse</strong>.</li>
-    <li>Velg passende <strong>Regresjonsmodell</strong>.</li>
-    <li>Kopier resultatet til grafikkfeltet.</li>
-  </ol>
-
-  <figure>
-    <img src="RegGeo.png" alt="Regresjon i GeoGebra" style="width: 60%;">
-  </figure>
-
-  <div class="example">
-    <h3>Eksempel</h3>
-
-    <p>Tabellen viser folketallet i verden, i milliarder, for noen utvalgte år.</p>
-
-<table border="1" style="border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th style="padding:10px;">Årstall</th>
-      <th style="padding:10px; text-align:center;">1927</th>
-      <th style="padding:10px; text-align:center;">1961</th>
-      <th style="padding:10px; text-align:center;">1974</th>
-      <th style="padding:10px; text-align:center;">1987</th>
-      <th style="padding:10px; text-align:center;">1999</th>
-      <th style="padding:10px; text-align:center;">2011</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding:10px;">Folketall</td>
-      <td style="padding:10px; text-align:center;">2</td>
-      <td style="padding:10px; text-align:center;">3</td>
-      <td style="padding:10px; text-align:center;">4</td>
-      <td style="padding:10px; text-align:center;">5</td>
-      <td style="padding:10px; text-align:center;">6</td>
-      <td style="padding:10px; text-align:center;">7</td>
-    </tr>
-  </tbody>
-</table>
-
-    <p>Vi lar år 2000 være \(x=0\) og gjør en regresjon i GeoGebra.</p>
-
-    <figure>
-      <img src="folk.png" alt="Eksponentiell regresjon for folketall" style="width: 70%;">
-    </figure>
-
-    <p>Vi leser av at økningen er ca. \(1,24\%\) per år.</p>
+</div>
+<div class="definition">
+  <h3>Den deriverte av en brøk</h3>
+  \[ \left(\frac{u}{v}\right)' = \frac{u'\cdot v-u\cdot v'}{v^2} \]
+</div>
+<div class="example">
+  <h3>Eksempel</h3><p>Deriver funksjonen</p>
+  \[ f(x) = \frac{x^3}{\ln x} \]
+  <div class="solution"><strong>Løsning</strong>
+  \[ f'(x) = \frac{u'\cdot v-u\cdot v'}{v^2} = \frac{3x^2\cdot\ln x-x^3\cdot\frac{1}{x}}{\left(\ln x\right)^2} = \underline{\frac{3x^2\cdot\ln x-x^2}{\left(\ln x\right)^2}} \]
   </div>
-
-  <div class="theorem">
-    <h3>Logistisk modell</h3>
-
-    <p>En logistisk modell</p>
-
-    \[
-      f(x)=\frac{N}{1+a\cdot e^{-kx}}
-    \]
-
-    <p>
-      har tilnærmet eksponentiell vekst i starten, før den dempes mot en øvre grense \(N\).
-      Vendepunktet er
-    \(
-      \left(\frac{\ln a}{k},\frac{N}{2}\right)
-    \). </p>
-
-    <figure>
-      <img src="logistmod.png" alt="Logistisk modell" style="width: 70%;">
-    </figure>
-  </div>
-
-  <div class="example">
-    <h3>Eksempel</h3>
-
-    <p>
-      25 kaniner settes ut på en øy. Etter 10 måneder øker antall kaniner mest.
-      Etter lang tid er det 100 kaniner på øya.
-    </p>
-
-    <p>Lag en logistisk modell som gir antall kaniner på øya.</p>
-
-    <p>Siden det er 100 kaniner etter lang tid, får vi</p>
-
-    \[
-      K(t)=\frac{100}{1+a\cdot e^{-kt}}
-    \]
-
-    <p>Siden det er 25 kaniner ved \(t=0\), får vi</p>
-
-    \[
-      K(0)=\frac{100}{1+a}=25
-      \quad\Rightarrow\quad
-      a=3
-    \]
-
-    <p>Siden veksten er størst etter 10 måneder, får vi</p>
-
-    \[
-      10=\frac{\ln a}{k}
-      =
-      \frac{\ln 3}{k}
-      \approx
-      \frac{1}{k}
-      \quad\Rightarrow\quad
-      k\approx 0,10
-    \]
-
-    <p>En modell blir derfor</p>
-
-    \[
-      K(t)=\frac{100}{1+3e^{-0,10t}}
-    \]
-  </div>
+</div>
+<h3>Utledning av brøkregelen</h3>
+<p>Vi kan utlede brøkregelen fra produkt- og kjerneregelen:</p>
+\[ \left(\frac{u}{v}\right)' = \left(u\cdot v^{-1}\right)' = u'\cdot v^{-1}+u\cdot(-1)v^{-2}\cdot v' = \frac{u'v-uv'}{v^2} \]
 </section>
+
+<section>
+<h2>Eksponentiell og logistisk vekst</h2>
+<div class="definition">
+  <h3>Eksponentialfunksjoner</h3>
+  \[ f(x) = a\cdot b^x = a\cdot e^{k\cdot x} \;\;\; \text{ hvor } k = \ln b \]
+  <p>Eksponentialfunksjoner vokser med en fast prosent hver periode. Vekstfaktoren \(b\) gir hvor mange prosent veksten er.</p>
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>I midten av 2026 var verdens befølning 8,3 milliarder. Vi antar at folketallet øker med ca. 1 % per år.</p>
+  <p>Bestem en modell for folketallet \(t\) år etter midten av 2026, og bestem den momentane vekstfarten i midten av 2026 og i midten av 2036.</p>
+  <div class="solution"><strong>Løsning</strong>
+    <p>Antall milliarder mennesker er gitt ved</p>
+    \[ f(t) = 8\text{,}3\cdot1\text{,}01^t = 8\text{,}3\cdot e^{\ln(1\text{,}01)\cdot t} \]
+    <p>og vekstfarten er</p>
+    \[ f'(t) = 8\text{,}3\cdot e^{\ln(1\text{,}01)\cdot t}\cdot\ln(1\text{,}01) \]
+    <p>Vekstfarten i midten av 2026 er</p>
+    \[ f'(t) = 8\text{,}3\cdot e^{\ln(1\text{,}01)\cdot0}\cdot\ln(1\text{,}01) \approx 0\text{,}083 \text{ milliarder per år} \]
+    <p>Vekstfarten i midten av 2036 er</p>
+    \[ f'(t) = 8\text{,}3\cdot e^{\ln(1\text{,}01)\cdot10}\cdot\ln(1\text{,}01) \approx 0\text{,}091 \text{ milliarder per år} \]
+  </div>
+</div>
+
+<div class="definition">
+  <h3>Logistisk modell</h3>
+  <p>En logistisk modell,</p>
+  \[ f(x) = \frac{N}{1+a\cdot e^{-k\cdot x}} \]
+  <p>har tilnærmet en eksponentiell vekst i starten, før den dempes mot en øvre grense \(N\). Vendepunktet er i \(\left(\frac{\ln a}{k},\frac{N}{2}\right)\).</p>
+  <img src="logistmod.png" alt="Logistisk modell" style="width: 55%;">
+</div>
+
+<div class="example">
+  <h3>Eksempel</h3>
+  <p>25 kaniner settes ut på en øy. Etter 10 måneder øker antall kaniner mest. Etter lang tid er det 100 kaniner på øya.</p>
+  <p>Lag en logistisk modell som gir antall kaniner på øya.</p>
+  <div class="solution"><strong>Løsning</strong>
+    <p>Siden det er 100 stk. etter lang tid, får vi</p>
+    \[ K(t) = \frac{100}{1+a\cdot e^{-k\cdot t}} \]
+    <p>Siden det er 25 kaniner ved \(t\) = 0, får vi</p>
+    \[ K(0) = \frac{100}{1+a} = 25 \;\;\;\rightarrow\;\;\;a=3 \]
+    <p>Siden veksten er størst etter 10 måneder, får vi</p>
+    \[ 10 = \frac{\ln a}{k} = \frac{\ln 3}{k} \approx \frac{1}{k} \;\;\;\rightarrow\;\;\; k \approx 0,10 \]
+    <p>En logistisk modell for antall kaniner \(K(t)\) etter \(t\) måneder er dermed</p>
+    \[ K(t) = \frac{100}{1+3e^{-0,10\cdot t}} \]
+  </div>
+</div>
+</section>
+
 </div>
 </body>
 </html>

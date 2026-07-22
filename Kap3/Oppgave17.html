@@ -12,12 +12,6 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-    max-height: 300px;
-    max-width: 450px;
-}
-</style>
 </head>
 
 <body>
@@ -37,35 +31,37 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Gitt funksjonen \(f\) på bildet.</p>
 
-        <p><strong>Hva kan definisjonsområdet være hvis funksjonen skal ha en omvendt funksjon?</strong></p>
+        $$
+            f(x) = e^{-x}
+        $$
+
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\( x < 3 \;\; \vee \;\; x > 3\)</span>
+                <span>\(  f'(x) = -e^{-x}  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>den eneste løsningen er \( x < 3\)</span>
+                <span>\(  f'(x) = e^{-x}  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>den eneste løsningen er \( x > 3\)</span>
+                <span>\(  f'(x) = e^{-2x}  \)</span>
             </label>
-         
 
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  f'(x) = -e^{-2x}  \)</span>
+            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="delt.png" alt="">
-    </div>
 </div>
 
 </body>

@@ -12,12 +12,6 @@
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-    max-height: 300px;
-    max-width: 450px;
-}
-</style>
 </head>
 
 <body>
@@ -37,42 +31,37 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Funksjonen \(f\) er gitt ved</p>
 
         $$
-                f(x) = \begin{cases}  \frac{x^2}{2} \;\;\;\;\;\;,\;\;\; x < 2 \\ ax +b \;\;,\;\;\;\; x \geq 2 \end{cases}
+            f(x) = e^{-x^2}
         $$
 
-        <p><strong>Hvilke verdier må \(a\) og \(b\) ha hvis \(f\) skal være deriverbar?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  a= 2 \;\;\; \wedge \;\;\; b= -2\)</span>
+                <span>\(  f'(x) = -2xe^{-x^2}  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  a= 2 \;\;\; \wedge \;\;\; b= 0\)</span>
+                <span>\(  f'(x) = e^{-2x}  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  a= 1 \;\;\; \wedge \;\;\; b= 0\)</span>
+                <span>\(  f'(x) = -e^{-2x}  \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  a= 1 \;\;\; \wedge \;\;\; b= -2\)</span>
+                <span>\(  f'(x) = -2e^{-2x}  \)</span>
             </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="deltfun2.png" alt="">
-    </div>
 </div>
 
 </body>

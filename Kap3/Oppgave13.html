@@ -5,19 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0877ab">
 
-<title>Flervalgsoppgaver R1</title>
+<title>Flervalgsoppgaver R2</title>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-    max-height: 300px;
-    max-width: 450px;
-}
-</style>
 </head>
 
 <body>
@@ -37,40 +31,31 @@ img {
 
 <div class="container">
     <div class="box">
-        <p>Gitt grafen til funksjonen \(f\) på bildet.</p>
-
-        <p><strong>Når har \(f\) en omvendt funksjon?</strong></p>
+        $$
+                f(x) = x \cdot e^{2x} 
+        $$
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>hvis \( x < 3 \) eller \( x > 3\) </span>
+                <span>\( f'(x) = e^{2x} + 2x \cdot e^{2x} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>bare hvis \( x < 3 \)</span>
+                <span>\( f'(x) = 2e^x\)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>bare hvis \( x > 3\)</span>
+                <span>\( f'(x) = e^{2x} + 2x \cdot e^{x}\)</span>
             </label>
-
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>hvis \(  2 < x < 4\) </span>
-            </label>
-
-    
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box" style="display: grid; place-items: center;">
-        <img src="omv.png" alt="">
-    </div>
 </div>
 
 </body>

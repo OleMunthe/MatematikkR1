@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0877ab">
 
-<title>Flervalgsoppgaver R1</title>
+<title>Flervalgsoppgaver R2</title>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -32,31 +32,26 @@
 <div class="container">
     <div class="box">
         $$
-                    \lim_{x \to 0} \frac{x}{e^x + 1} 
+                f(x) = (x^2 + 3)^3 
         $$
-
-        <p><strong>Hva er grenseverdien?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>\(  1 \)</span>
-            </label>
-
-            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  0 \)</span>
+                <span>\( f'(x) = 6x(x^2 + 3)^2 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  \frac{1}{2} \)</span>
+                <span>\( f'(x) = 3(x^2 + 3)^2 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  \pm \infty \) (grensen eksisterer ikke)</span>
+                <span>\( f'(x) = 6x \)</span>
             </label>
+
+ 
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>

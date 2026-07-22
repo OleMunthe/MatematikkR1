@@ -31,32 +31,32 @@
 
 <div class="container">
     <div class="box">
-        <p>Funksjonen \(f\) er gitt ved</p>
-
         $$
-                f(x) = \ln(7x) + 5
+                    \lim_{x \to 0} \frac{x}{e^x + 1} 
         $$
 
-        <p>Funksjonen \(g(x)\) er den omvendte funksjonen til \(f(x)\).</p>
-
-        <p><strong>Hva er riktig?</strong></p>
+        <p><strong>Hva er grenseverdien?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  1 \)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>\(  g(x) = \frac{e^{x-5}}{7}  \)</span>
+                <span>\(  0 \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  g(x) = \frac{e^{x}-5}{7}  \)</span>
+                <span>\(  \frac{1}{2} \)</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>\(  g(x) = \frac{e^{x/5}}{7}  \)</span>
+                <span>\(  \pm \infty \) (grensen eksisterer ikke)</span>
             </label>
-
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
