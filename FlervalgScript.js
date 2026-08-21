@@ -206,7 +206,15 @@ document.querySelectorAll(".svar").forEach(label => {
 function nesteSporsmal() {
     const data = hentData();
 
-    const gjenstaar = aktivtSett.filter(
+    // Hvis denne oppgaven ikke er besvart riktig,
+    // vis samme oppgave på nytt.
+    if (!data.riktige.includes(OPPGAVE_ID)) {
+        window.location.href = `Oppgave${OPPGAVE_ID}.html`;
+        return;
+    }
+
+    // Finn oppgaver som ennå ikke er besvart riktig
+    const gjenstaar = aktivtSett.filter( 
         id => !data.riktige.includes(id)
     );
 
@@ -215,6 +223,7 @@ function nesteSporsmal() {
         return;
     }
 
+    // Velg tilfeldig neste oppgave
     const neste =
         gjenstaar[Math.floor(Math.random() * gjenstaar.length)];
 
