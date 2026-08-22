@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0877ab">
-    <title>Matematikk R1</title> 
+    <title>Matematikk 1T</title> 
 
     <style>
         h1 {
@@ -127,30 +127,8 @@
 
 <div class="hero">
     <main>
-        <h1>R1</h1>
-
-         <p><strong>Nedenfor 👇 er flervalgsoppgaver til alle emner i Matematikk R1. </strong></p>
-
-        <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
-
-        <div class="antall-velger">
-  <strong>Før du starter; Velg hvor mange oppgaver du vil ha:</strong><br><br>
-  <label>
-    <input type="radio" name="antallOppgaver" value="10">
-    10
-  </label>
-  <label>
-    <input type="radio" name="antallOppgaver" value="20">
-    20
-  </label>
-  <label>
-    <input type="radio" name="antallOppgaver" value="30">
-    30
-  </label>
-</div>
-
-         <p><strong>Hver gang du går inn på en av lenkene får du trukket ut ulike tilfeldige oppgaver fra det aktuelle emnet.</strong></p>
-
+  
+       
 <ul class="app-link-list">
   <li>
     <a class="app-link" href="./Kap1/Oppgave1.html" onclick="velgKategori('Kap1')">Logaritmer</a>
@@ -173,13 +151,7 @@
   </li>
 </ul>
 
-        <p><strong>
-        Riktig svar blir grønt 💚<br>
-        Feil svar blir rødt 🤬</strong></p>
 
-        <p><strong>
-        Spørsmål du svarer feil på kommer på nytt helt til du har svart riktig. 
-        </strong></p>
     </main>
 </div>
 
@@ -196,52 +168,41 @@ function shuffle(array) {
 function velgKategori(kategori) {
 
     const TOTAL = {
-        Kap1: 50, Kap2: 70, Kap3: 32, Kap4: 35
+        Kap1: 50, Kap2: 70, Kap3: 32, Kap4: 33
     };
 
-    // ✅ Nullstill ALT for ny kategori
+    // Nullstill resultatene når et nytt emne startes.
     const storageKey = `quizData_${kategori}`;
     localStorage.removeItem(storageKey);
     sessionStorage.removeItem("harStartet");
 
-    const alle = [];
+    // Bruk ALLE oppgavene i kronologisk rekkefølge:
+    // Oppgave1.html, Oppgave2.html, Oppgave3.html, ...
+    const alleOppgaver = [];
     for (let i = 1; i <= (TOTAL[kategori] || 1); i++) {
-        alle.push(i);
+        alleOppgaver.push(i);
     }
-
-    // Stokk oppgavene
-    shuffle(alle);
-
-    const antall = Math.min(
-        parseInt(sessionStorage.getItem("antallOppgaver") || "10"),
-        alle.length
-    );
-
-    const tilfeldig = alle.slice(0, antall);
 
     sessionStorage.setItem("valgtKategori", kategori);
-    sessionStorage.setItem("aktivtOppgavesett", JSON.stringify(tilfeldig));
+    sessionStorage.setItem("aktivtOppgavesett", JSON.stringify(alleOppgaver));
 }
-
-
-
-
-  // Sett default hvis ikke valgt tidligere
-  if (!sessionStorage.getItem("antallOppgaver")) {
-    sessionStorage.setItem("antallOppgaver", "10");
-  }
-
-  // Sett riktig radio som valgt ved lasting
-  document.querySelectorAll("input[name='antallOppgaver']").forEach(radio => {
-    if (radio.value === sessionStorage.getItem("antallOppgaver")) {
-      radio.checked = true;
-    }
-
-    radio.addEventListener("change", () => {
-      sessionStorage.setItem("antallOppgaver", radio.value);
-    });
-  });
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

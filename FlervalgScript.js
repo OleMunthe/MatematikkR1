@@ -2,6 +2,85 @@
    ANTALL OPPGAVER‑VELGER (kun på index.html)
    Injiseres automatisk hvis .app-link-list finnes
    ========================================================= */
+// Korte lydeffekter uten eksterne lydfiler.
+// Web Audio starter først etter brukerinteraksjon, som passer fint for quiz-knappene.
+function playQuizSound(type) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+
+    if (!window.quizAudioCtx) {
+        window.quizAudioCtx = new AudioCtx();
+    }
+
+    const ctx = window.quizAudioCtx;
+
+    if (ctx.state === "suspended") {
+        ctx.resume();
+    }
+
+    const now = ctx.currentTime;
+
+    function tone(freq, start, duration, volume, wave = "sine") {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = wave;
+        osc.frequency.setValueAtTime(freq, start);
+
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(
+            volume,
+            start + 0.015
+        );
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            start + duration
+        );
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(start);
+        osc.stop(start + duration + 0.03);
+    }
+
+    if (type === "correct") {
+
+        // Lys, positiv "pling-plong-ding"
+        tone(783.99, now + 0.18, 0.28, 0.09); // G5
+        tone(1046.50, now + 0.27, 0.32, 0.07); // C6
+
+    } else if (type === "wrong") {
+
+        // Kort og myk feil-lyd
+        tone(220, now,        0.16, 0.055, "triangle");
+        tone(185, now + 0.08, 0.22, 0.045, "triangle");
+    }
+}
+
+function showPointPopup() {
+    let popup = document.getElementById("pointPopup");
+
+    // Opprett popup automatisk hvis den ikke finnes i HTML-en
+    if (!popup) {
+        popup = document.createElement("div");
+        popup.id = "pointPopup";
+        popup.textContent = "Riktig!";
+
+        const box = document.querySelector(".box");
+        if (box) {
+            box.appendChild(popup);
+        } else {
+            document.body.appendChild(popup);
+        }
+    }
+
+    // Start animasjonen på nytt
+    popup.classList.remove("show");
+    void popup.offsetWidth;
+    popup.classList.add("show");
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -186,8 +265,13 @@ document.querySelectorAll(".svar").forEach(label => {
 
         if (verdi === "riktig") {
             data.riktige.push(OPPGAVE_ID);
+            playQuizSound("correct");
+              // ✅ Vis tydelig +1 point
+            showPointPopup();
         } else {
             data.feil[OPPGAVE_ID] = (data.feil[OPPGAVE_ID] || 0) + 1;
+            playQuizSound("wrong");
+
         }
 
         lagreData(data);
