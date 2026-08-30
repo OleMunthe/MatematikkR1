@@ -417,10 +417,10 @@ f(x) &= 2x \text{ og } g(x)=\frac{x}{2} \text{ fordi } f(g(x))=2\left(\frac{x}{2
 <img src="maskin.png" alt="Funksjon som maskin" style="width: 20%;">
 
 <p>Siden hver \(x\)-verdi bare skal gi én \(y\)-verdi, kan ikke en funksjon som skal ha en omvendt funksjon ha flere \(x\)-verdier for samme \(y\)-verdi:</p>
-<img src="omvendtEks.png" alt="Eksempel på omvendt funksjon" style="width: 70%;">
+<img src="omvendtEks.png" alt="Eksempel på omvendt funksjon" style="width: 67%;">
 
 <p>Omvendte funksjonener er speilsymmetriske rundt linja \(y=x\).</p>
-<img src="inversEnkel.png" alt="Omvendte funksjoner speilet om y lik x" style="width: 60%;">
+<img src="inversEnkel.png" alt="Omvendte funksjoner speilet om y lik x" style="width: 52%;">
 
 <div class="note">
   <strong>Merk:</strong> For at \(f(x)=x^2\) skal kunne ha en omvendt funksjon må den bare være definert for positive eller negative \(x\)-verdier.
@@ -443,20 +443,21 @@ f(x) &= 2x \text{ og } g(x)=\frac{x}{2} \text{ fordi } f(g(x))=2\left(\frac{x}{2
 <div class="example">
   <h3>Eksempel</h3>
   <p>Bestem funksjonsuttrykket til den omvendte funksjonen til</p>
-  \[ f(x)=3+5\cdot e^{\frac{x}{7}} \]
+  \[ f(x)=3+5\cdot \sqrt{\frac{x}{7}} \]
   <div class="solution">
 \[
 \begin{aligned}
-y &= 3+5\cdot e^{\frac{x}{7}} \\
-y-3 &= 5\cdot e^{\frac{x}{7}} \\
-\frac{y-3}{5} &= e^{\frac{x}{7}} \\
-\ln\left(\frac{y-3}{5}\right) &= \frac{x}{7} \\
-7\cdot\ln\left(\frac{y-3}{5}\right) &= x
+y &= 3+5\cdot \sqrt{\frac{x}{7}}  \\
+y-3 &= 5\cdot \sqrt{\frac{x}{7}}  \\
+\frac{y-3}{5} &= \sqrt{\frac{x}{7}}  \\
+\left(\frac{y-3}{5}\right)^2 &= \frac{x}{7} \\
+7\cdot \left(\frac{y-3}{5}\right)^2 &= x
 \end{aligned}
 \]
     <p>Den omvendte funksjonen er dermed</p>
-    \[ g(x)=7\ln\left(\frac{x-3}{5}\right) \]
-    <img src="invers.png" alt="Graf til en funksjon og dens omvendte funksjon" style="width: 55%;">
+    \[ g(x)=7\cdot \left(\frac{y-3}{5}\right)^2 \]
+    <strong>MERK</strong>: Siden \(x>0\) for \(f(x)\), så er \(x>3\) for \(g(x)\).
+    <img src="inversNY.png" alt="Graf til en funksjon og dens omvendte funksjon" style="width: 67%;">
   </div>
 </div>
 </section>
