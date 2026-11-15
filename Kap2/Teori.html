@@ -8,352 +8,62 @@
   <!-- MathJax -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.6;
-      background-color: #fafafa;
-    }
-
-    h1, h2, h3 {
-      margin-top: 2em;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 1em auto;
-    }
-
-    /* ---------- BOKSER ---------- */
-
-    /* Definisjon */
-    .definition {
-      background-color: #ecfeff;
-      border-left: 6px solid #0891b2;
-     padding: 1em 1.5em 0.7em 1.5em;
-      margin: 0em 0;
-      border-radius: 8px;
-    }
-
-    .definition h3::before {
-      content: "📘 ";
-    }
-
-    .definition h3 {
-  margin-top: 0;
-}
-
-.definition > :last-child {
-  margin-bottom: 0;
-}
-
-    /* Eksempel */
-    .example {
-      background-color: #ecfdf5;
-      border: 2px solid #10b981;
-      border-left-width: 6px;
-      padding: 1.2em 1.5em;
-      margin: 2em 0;
-      border-radius: 10px;
-    }
-
-    .example h3 {
-      margin-top: 0;
-      color: #065f46;
-    }
-
-    .example h3::before {
-      content: "📌 ";
-    }
-
-    .solution {
-      background-color: #ffffff;
-      border: 1px dashed #34d399;
-      padding: 1em;
-      margin-top: 1em;
-      border-radius: 6px;
-    }
-
-    /* Merk */
-    .note {
-      background-color: #fff7ed;
-      border-left: 6px solid #f59e0b;
-      padding: 1.2em 1.5em;
-      margin: 2em 0;
-      border-radius: 8px;
-    }
-
-    .note strong::before {
-      content: "⚠️ ";
-    }
-
-    /* Programkode */
-    .codebox {
-      background-color: #0f172a;
-      color: #e5e7eb;
-      padding: 1.5em;
-      border-radius: 10px;
-      margin: 2em 0;
-      overflow-x: auto;
-      font-family: Consolas, Monaco, monospace;
-    }
-
-    .codebox::before {
-      content: "💻 Programkode";
-      display: block;
-      color: #34d399;
-      margin-bottom: 0.8em;
-      font-weight: bold;
-    }
-
-    .outputbox {
-  background-color: #f8fafc;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-  border-left: 6px solid #64748b;
-  padding: 1em 1.2em;
-  margin: -1em 0 2em 0;
-  border-radius: 0.5px;
-  font-family: Consolas, Monaco, monospace;
-  white-space: pre-wrap;
-}
-
-.outputbox::before {
-  content: "🖨️ Utskrift";
-  display: block;
-  font-weight: bold;
-  color: #475569;
-  margin-bottom: 0.1em;
-}
-
-
-.formel-tabell table {
-    border-collapse: collapse;
-    margin: 1rem auto;
-}
-.formel-tabell td {
-    border: 1px solid #999;
-    padding: 18px 28px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.kode-tabell {
-    margin: 1rem 0;
-    overflow-x: auto;
-}
-
-.kode-tabell table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.kode-tabell td {
-    border: 1px solid #999;
-    padding: 12px 16px;
-    vertical-align: top;
-}
-
-.kode-tabell td:first-child {
-    font-weight: bold;
-    white-space: nowrap;
-    width: 22%;
-    background-color: #f8f8f8;
-}
-
-.kode-tabell code {
-    font-family: Consolas, Monaco, "Courier New", monospace;
-    font-size: 0.95em;
-}
-
-.kode-tabell pre {
-    margin: 0;
-    white-space: pre;
-    overflow-x: auto;
-}
-
-
-    /* ===========================
-   Mobiltilpasning
-   =========================== */
-
-@media (max-width: 700px) {
-    .kode-tabell td {
-        padding: 8px 10px;
-    }
-
-    .kode-tabell code,
-    .kode-tabell pre {
-        font-size: 0.85em;
-    }
-  body {
-    padding: 1em;
-    font-size: 1rem;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  /* Bokser: mindre padding på mobil */
-  .example,
-  .definition,
-  .note,
-  .codebox {
-    padding: 1em;
-    margin: 1.5em 0;
-  }
-  .outputbox {
-  padding: 1em;
-  margin: 1.5em 0;
-}
-
-  /* Bilder: litt større på mobil */
-  img {
-    width: 100% !important;
-    max-width: 100%;
-  }
-
-  /* Programkode: lettere å lese */
-  .codebox {
-    font-size: 0.9rem;
-  }
-
-}
-
-/* ===== Skriv til PDF-knapp ===== */
-
-.print-button {
-  display: block;
-  margin: 1.5em auto;
-  padding: 0.6em 1.4em;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #10b981;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.print-button:hover {
-  background-color: #059669;
-}
-
-/* Skjul knappen på mobil */
-@media (max-width: 700px) {
-  .print-button {
-    display: none;
-  }
-}
-
-@media print {
-  .print-button {
-    display: none;
-  }
-}
-
-
-/* ===========================
-   PDF / Utskrift
-   =========================== */
-
-@media print {
-
-  /* Generelle marger for A4 */
-  body {
-    margin: 1.5cm;
-    background: white;
-  }
-
-  /* Overskrifter starter på ny side */
-  h1,
-  h2 {
-    page-break-before: always;
-  }
-
-  /* Aldri del disse boksene over sider */
-  .definition,
-  .example,
-  .note,
-  .codebox {
-    page-break-inside: avoid;
-  }
-  .outputbox {
-  page-break-inside: avoid;
-}
-
-  /* Tillat at løsninger deles om nødvendig */
-  .solution {
-    page-break-inside: auto;
-  }
-
-  /* Bilder bør heller flyttes enn å deles */
-  img {
-    page-break-inside: avoid;
-  }
-
-  /* PDF skal ikke vise knappen */
-  .print-button {
-    display: none !important;
-  }
-}
-@media print {
-  .no-print {
-    display: none;
-  }
-@page {
-  size: A4;
-  margin: 1.5cm;
-}
-
-@media print {
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .print-scale {
-    width: 900px;
-    transform: scale(1);
-    transform-origin: top left;
-  }
-}}
-  </style>
+<link rel="stylesheet" href="styleTeori.css">
 </head>
 
 <body>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+  <a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-0">Sammendrag</a>
+<a href="#del-1">Delt forskrift</a>
+<a href="#del-2">Grenseverdier</a>
+<a href="#del-3">Asymptoter</a>
+<a href="#del-4">Kontinuitet</a>
+<a href="#del-5">Derivasjon</a>
+<a href="#del-6">Tangenter</a>
+<a href="#del-7">Deriverbarhet</a>
+<a href="#del-8">Ekstremal- og terrassepunkter</a>
+<a href="#del-9">Vendepunkter</a>
+</nav>
+
+
 <div class="print-scale">
-<a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
 <button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
 
 <h1>Funksjonsdrøfting</h1>
 
+
+<section id="del-0">
+  <strong>Sammendrag</strong>
 <p>Du skal ha kompetanse om</p>
 <ul>
   <li>funksjoner med delt forskrift</li>
+  \[   f(x) = \begin{cases}
+  g(x) \;\;,\;\; x \leq a \\
+  h(x) \;\;,\;\; x > a
+  \end{cases} \]
   <li>grenseverdier</li>
-  <li>funksjoner med asymptoter</li>
-  <li>vekstfart og derivasjon</li>
-  <li>numerisk derivasjon (med Python)</li>
+  \[ \lim_{x \rightarrow a} f(x) = \text{ verdien til }f(x) \text{ når }x \text{ er uendelig nærme }a  \]
+  <li>L'Hôpitals regel</li>
+  \[ \lim_{x \rightarrow a} \frac{f(x)}{g(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{g'(x)} \text{ hvis } f(a) = g(a) = 0, \text{ eller } f(a) \rightarrow \pm \infty \text{ og } g(a) \rightarrow \pm \infty \]
+  <li>definisjonen av den deriverte og grunnleggende derivasjonsregler</li>
+  \[  f'(x) = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h} \;\; \text{ og } \;\; (ax^n + b)' = a\cdot n \cdot x^{n-1} + 0\]
   <li>kontinuitet og deriverbarhet</li>
-  <li>tangenter</li>
-  <li>ekstremal- og terrassepunkter</li>
-  <li>vendepunkter</li>
+  \[ 
+  f(a) = \lim_{x \rightarrow a^{-}} f(x) = \lim_{x \rightarrow a^{+}} f(x)  \;\; \text{ og } \;\;
+   f'(a) = \lim_{x \rightarrow a^{-}} f'(x) = \lim_{x \rightarrow a^{+}} f'(x) 
+   \]
+   <li>likningen til tangenter</li>
+   \[  y = ax + b \;\; \text{ hvor } a = f'(x_0) \text{ og } b = y_0 - a\cdot x_0 \]
+   <li>ekstremalpunkter, terrassepunkter og vendepunkter</li>
+   <img src="ekstremalv.png" alt="Graf til funksjon med delt forskrift" style="width: 42%;">
 </ul>
+</section>
 
-<section>
+
+<section id="del-1">
 <h2>Funksjoner med delt forskrift</h2>
 <div class="example">
   <h3>Eksempel</h3>
@@ -373,7 +83,11 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+<section id="del-2">
 <h2>Grenseverdier</h2>
 <div class="example">
   <h3>Eksempel</h3>
@@ -407,7 +121,13 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+
+<section id="del-3">
 <h2>Funksjoner med asymptoter</h2>
 <p>En rasjonal funksjon er en funksjon der både teller og nevner er en polynomfunksjon.</p>
 <img src="rasj.png" alt="Graf til en rasjonal funksjon" style="width: 55%;">
@@ -431,7 +151,12 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+<section id="del-4">
 <h2>Kontinuitet</h2>
 <p>Kontinuerlige funksjoner er funksjoner som ikke "hopper" i definisjonsområdet; Funksjoner vi kan tegne innenfor definisjonsområdet uten å løfte pennen fra arket.</p>
 <div class="example">
@@ -450,7 +175,12 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+<section id="del-5">
 <h2>Derivasjon</h2>
 <div class="definition">
   <h3>Vekstfart</h3>
@@ -512,7 +242,12 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+<section id="del-6">
 <h2>Tangenter</h2>
 <p>Tangenten til en graf i et punkt \((x_0, f(x_0))\) er en rett linje</p>
 \[ y = ax + b \]
@@ -537,7 +272,11 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+<section id="del-7">
 <h2>Deriverbarhet</h2>
 <div class="definition">
   <h3>Deriverbarhet</h3>
@@ -557,7 +296,12 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+<section id="del-8">
 <h2>Ekstremal- og terrassepunkter</h2>
 <img src="ekstremal.png" alt="Ekstremal- og terrassepunkter" style="width: 42%;">
 <div class="definition">
@@ -580,7 +324,12 @@
 </div>
 </section>
 
-<section>
+
+
+
+
+
+<section id="del-9">
 <h2>Vendepunkter</h2>
 <div class="definition">
   <h3>Vendepunkt</h3>

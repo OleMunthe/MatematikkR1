@@ -1,366 +1,81 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>Vektorer</title>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.6;
-      background-color: #fafafa;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Vektorer</title>
 
-    h1, h2, h3 {
-      margin-top: 2em;
-    }
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 1em auto;
-    }
-
-    /* ---------- BOKSER ---------- */
-
-    /* Definisjon */
-    .definition {
-      background-color: #ecfeff;
-      border-left: 6px solid #0891b2;
-     padding: 1em 1.5em 0.7em 1.5em;
-      margin: 0em 0;
-      border-radius: 8px;
-    }
-
-    .definition h3::before {
-      content: "📘 ";
-    }
-
-    .definition h3 {
-  margin-top: 0;
-}
-
-.definition > :last-child {
-  margin-bottom: 0;
-}
-
-    /* Eksempel */
-    .example {
-      background-color: #ecfdf5;
-      border: 2px solid #10b981;
-      border-left-width: 6px;
-      padding: 1.2em 1.5em;
-      margin: 2em 0;
-      border-radius: 10px;
-    }
-
-    .example h3 {
-      margin-top: 0;
-      color: #065f46;
-    }
-
-    .example h3::before {
-      content: "📌 ";
-    }
-
-    .solution {
-      background-color: #ffffff;
-      border: 1px dashed #34d399;
-      padding: 1em;
-      margin-top: 1em;
-      border-radius: 6px;
-    }
-
-    /* Merk */
-    .note {
-      background-color: #fff7ed;
-      border-left: 6px solid #f59e0b;
-      padding: 1.2em 1.5em;
-      margin: 2em 0;
-      border-radius: 8px;
-    }
-
-    .note strong::before {
-      content: "⚠️ ";
-    }
-
-    /* Programkode */
-    .codebox {
-      background-color: #0f172a;
-      color: #e5e7eb;
-      padding: 1.5em;
-      border-radius: 10px;
-      margin: 2em 0;
-      overflow-x: auto;
-      font-family: Consolas, Monaco, monospace;
-    }
-
-    .codebox::before {
-      content: "💻 Programkode";
-      display: block;
-      color: #34d399;
-      margin-bottom: 0.8em;
-      font-weight: bold;
-    }
-
-    .outputbox {
-  background-color: #f8fafc;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-  border-left: 6px solid #64748b;
-  padding: 1em 1.2em;
-  margin: -1em 0 2em 0;
-  border-radius: 0.5px;
-  font-family: Consolas, Monaco, monospace;
-  white-space: pre-wrap;
-}
-
-.outputbox::before {
-  content: "🖨️ Utskrift";
-  display: block;
-  font-weight: bold;
-  color: #475569;
-  margin-bottom: 0.1em;
-}
-
-
-.formel-tabell table {
-    border-collapse: collapse;
-    margin: 1rem auto;
-}
-.formel-tabell td {
-    border: 1px solid #999;
-    padding: 18px 28px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.kode-tabell {
-    margin: 1rem 0;
-    overflow-x: auto;
-}
-
-.kode-tabell table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.kode-tabell td {
-    border: 1px solid #999;
-    padding: 12px 16px;
-    vertical-align: top;
-}
-
-.kode-tabell td:first-child {
-    font-weight: bold;
-    white-space: nowrap;
-    width: 22%;
-    background-color: #f8f8f8;
-}
-
-.kode-tabell code {
-    font-family: Consolas, Monaco, "Courier New", monospace;
-    font-size: 0.95em;
-}
-
-.kode-tabell pre {
-    margin: 0;
-    white-space: pre;
-    overflow-x: auto;
-}
-
-
-    /* ===========================
-   Mobiltilpasning
-   =========================== */
-
-@media (max-width: 700px) {
-    .kode-tabell td {
-        padding: 8px 10px;
-    }
-
-    .kode-tabell code,
-    .kode-tabell pre {
-        font-size: 0.85em;
-    }
-  body {
-    padding: 1em;
-    font-size: 1rem;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  /* Bokser: mindre padding på mobil */
-  .example,
-  .definition,
-  .note,
-  .codebox {
-    padding: 1em;
-    margin: 1.5em 0;
-  }
-  .outputbox {
-  padding: 1em;
-  margin: 1.5em 0;
-}
-
-  /* Bilder: litt større på mobil */
-  img {
-    width: 100% !important;
-    max-width: 100%;
-  }
-
-  /* Programkode: lettere å lese */
-  .codebox {
-    font-size: 0.9rem;
-  }
-
-}
-
-/* ===== Skriv til PDF-knapp ===== */
-
-.print-button {
-  display: block;
-  margin: 1.5em auto;
-  padding: 0.6em 1.4em;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #10b981;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.print-button:hover {
-  background-color: #059669;
-}
-
-/* Skjul knappen på mobil */
-@media (max-width: 700px) {
-  .print-button {
-    display: none;
-  }
-}
-
-@media print {
-  .print-button {
-    display: none;
-  }
-}
-
-
-/* ===========================
-   PDF / Utskrift
-   =========================== */
-
-@media print {
-
-  /* Generelle marger for A4 */
-  body {
-    margin: 1.5cm;
-    background: white;
-  }
-
-  /* Overskrifter starter på ny side */
-  h1,
-  h2 {
-    page-break-before: always;
-  }
-
-  /* Aldri del disse boksene over sider */
-  .definition,
-  .example,
-  .note,
-  .codebox {
-    page-break-inside: avoid;
-  }
-  .outputbox {
-  page-break-inside: avoid;
-}
-
-  /* Tillat at løsninger deles om nødvendig */
-  .solution {
-    page-break-inside: auto;
-  }
-
-  /* Bilder bør heller flyttes enn å deles */
-  img {
-    page-break-inside: avoid;
-  }
-
-  /* PDF skal ikke vise knappen */
-  .print-button {
-    display: none !important;
-  }
-}
-@media print {
-  .no-print {
-    display: none;
-  }
-@page {
-  size: A4;
-  margin: 1.5cm;
-}
-
-@media print {
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .print-scale {
-    width: 900px;
-    transform: scale(1);
-    transform-origin: top left;
-  }
-}}
-  </style>
+<link rel="stylesheet" href="styleTeori.css">
 </head>
+
 <body>
-  <div class="print-scale">
-    <a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
-    <button class="print-button" onclick="window.print()">
-      🖨️ Skriv til PDF
-    </button>
+<nav class="side-menu" aria-label="Innholdsfortegnelse">
+<a href="../index.html" class="back-link">👈 Tilbake til hovedsiden</a>
+<br>
+<strong>Innhold</strong>
+<a href="#del-0">Sammendrag</a>
+<a href="#del-1">Grunnleggende vektorregning</a>
+<a href="#del-2">Sum og differanse av vektorer</a>
+<a href="#del-3">Parallelle vektorer</a>
+<a href="#del-4">Skalarprodukt</a>
+<a href="#del-5">Parameterframstilling</a>
+<a href="#del-6">Likningen for en sirkel</a>
+</nav>
+
+
+<div class="print-scale">
+
+<button class="print-button" onclick="window.print()">🖨️ Skriv til PDF</button>
 
     <h1>
       Vektorer
     </h1>
+
+    <section id="del-0">
+      <strong>Sammendrag</strong>
     <p>
       Du skal ha kompetanse om
     </p>
     <ul>
       <li>
-        konseptet med vektorer
+        konseptet med vektorer: \(  \vec{v} = \left[ \Delta x, \Delta y \right] \)
       </li>
+      <br>
       <li>
-        regneregler for vektorer
+        grunnleggende regneregler for vektorer
       </li>
+       <img src="vektorsum.png" alt="Sum av vektorer" style="width: 42%;">
+       <li>
+        skalarprodukt: \( [a, b] \cdot [c, d] = ac + bd \) og &#x1F447;
+      </li>
+           <img src="skalarprodukt.png" alt="Illustrasjon av skalarprodukt" style="width: 42%;">
+            <li>
+      ortogonale vektorer: \(\vec{u}\perp \vec{v} \;\; \Leftrightarrow \;\;  \vec{u}\cdot\vec{v} = 0\), som betyr at \( \vec{u} = \left[ a, b \right] \) og \( \vec{v} = k\cdot \left[ -b, a \right] \)
+      </li>
+      <br>
+           <li>
+        parallelle vektorer: \(\vec{u}||\vec{v} \;\; \Leftrightarrow \;\;  \vec{u}=k\cdot\vec{v}\)
+      </li>
+      <br>
+           <li>
+        parameterfremstillinger (og vektorfunksjoner): \(  l: \begin{cases}
+      x= x_0 + at \\ y = y_0 + bt
+      \end{cases}, \text{ hvor } \vec{v} = [a, b] \text{ er retningsvektoren til linja}\)
+      </li>
+      <br>
       <li>
-        å bruke vektorer til å beregne ulike størrelser i planet
+        sirkellikningen: \( (x-x_0)^2 + (y - y_0)^2 = r^2 \)
       </li>
-      <li>
-        parameterfremstillinger (og vektorfunksjoner)
-      </li>
-      <li>
-        sirkellikningen
-      </li>
+       <img src="sirkel.png" alt="Sirkel med sentrum, punkt og radius" style="width: 52%;">
     </ul>
+    </section>
 
-    <section>
+
+
+    <section id="del-1">
       <h2>
         Grunnleggende vektorregning
       </h2>
@@ -370,7 +85,7 @@
       <p>
         Eksempler på vektorer er hastighet, kraft og akselerasjon.
       </p>
-      <img src="vekEks.png" alt="Eksempler på vektorer" style="width: 75%;">
+      <img src="vekEks.png" alt="Eksempler på vektorer" style="width: 67%;">
       <p>
         En vektor forteller oss hvor langt vi går i \(x\)- og \(y\)-retning.
       </p>
@@ -383,7 +98,7 @@
         </p>
         <div class="solution">
           <strong>Løsning</strong>
-          <img src="vekEnkel.png" alt="Vektor mellom punktene A og B" style="width: 60%;">
+          <img src="vekEnkel.png" alt="Vektor mellom punktene A og B" style="width: 52%;">
           <p>
             Vi leser av forlytningen for å bestemme vektoren:
           </p>
@@ -402,7 +117,10 @@
       </div>
     </section>
 
-    <section>
+
+
+
+    <section id="del-2">
       <h2>
         Sum og differanse av vektorer
       </h2>
@@ -415,7 +133,7 @@
         </p>
         <div class="solution">
           <strong>Løsning</strong>
-          <img src="vektorsum.png" alt="Sum av vektorer" style="width: 58%;">
+          <img src="vektorsum.png" alt="Sum av vektorer" style="width: 52%;">
           \[ \vec{a} + \vec{b} = [5, -2] + [2, 3] = [5+2, -2+3] = [7, 1] \]
         </div>
       </div>
@@ -440,7 +158,10 @@
       </div>
     </section>
 
-    <section>
+
+
+
+    <section id="del-3">
       <h2>
         Parallelle vektorer
       </h2>
@@ -504,7 +225,11 @@
       </div>
     </section>
 
-    <section>
+
+
+
+
+    <section id="del-4">
       <h2>
         Skalarprodukt
       </h2>
@@ -515,7 +240,7 @@
         <p>
           Skalarprodukt er lengden av den ene vektoren \(\vec{a}\) multiplisert med projeksjonen av den andre vektoren \(\vec{b}\) ned på den første:
         </p>
-        <img src="skalarprodukt.png" alt="Illustrasjon av skalarprodukt" style="width: 68%;">
+        <img src="skalarprodukt.png" alt="Illustrasjon av skalarprodukt" style="width: 52%;">
         <p>
           På vektorform regner vi skalarproduktet slik:
         </p>
@@ -537,7 +262,12 @@
       </div>
     </section>
 
-    <section>
+
+
+
+
+
+    <section id="del-5">
       <h2>
         Parameterframstilling
       </h2>
@@ -563,7 +293,7 @@
           <p>
             Vi setter inn \(t=0\), \(1\), \(2\) og \(3\) og får posisjonen etter 0, 1, 2 og 3 s.
           </p>
-          <img src="fiskpara.png" alt="Parameterframstilling for fiskens bevegelse" style="width: 72%;">
+          <img src="fiskpara.png" alt="Parameterframstilling for fiskens bevegelse" style="width: 52%;">
           <p>
             Farten til fisken er den deriverte av posisjonen:
           </p>
@@ -604,9 +334,11 @@
           <p>
             Vi setter inn i uttrykket for \(m\) og får punktet \(\left(\frac{3}{2},2\right)\)
           </p>
-          <img src="interc.png" alt="Skjæringspunkt mellom to linjer" style="width: 75%;">
+          <img src="interc.png" alt="Skjæringspunkt mellom to linjer" style="width: 67%;">
         </div>
       </div>
+
+      <h2></h2>
       <p>
         Kurver kan både fremstilles som parameterfremstillinger og som vektorfunksjoner:
       </p>
@@ -641,12 +373,15 @@
           <p>
             Banefarten etter ett sekund er \(\sqrt{20^2+5^2}\) m/s = \(\underline{\sqrt{425}\text{ m/s}}\) og størrelsen til akselerasjonen er \(\underline{\text{10 m/s}^2}\).
           </p>
-          <img src="balle2.png" alt="Bane for en ball" style="width: 82%;">
+          <img src="balle2.png" alt="Bane for en ball" style="width: 67%;">
         </div>
       </div>
     </section>
 
-    <section>
+
+
+
+    <section id="del-6">
       <h2>
         Likningen for en sirkel
       </h2>
@@ -657,7 +392,7 @@
         <p>
           Avstanden fra sentrum \(S(x_0,y_0)\) av en sirkel til et tilfeldig punkt \(P(x,y)\) på sirkelen er lik radien til sirkelen:
         </p>
-        <img src="sirkel.png" alt="Sirkel med sentrum, punkt og radius" style="width: 82%;">
+        <img src="sirkel.png" alt="Sirkel med sentrum, punkt og radius" style="width: 67%;">
         <p>
           Lengden \(|\overrightarrow{SP}|=r\) gir likningen for en sirkel:
         </p>
@@ -706,7 +441,7 @@
           <p>
             Skjæringspunktene er (2, 1) og (0, 5).
           </p>
-          <img src="sirkel13.png" alt="Skjæringspunkter mellom linje og sirkel" style="width: 75%;">
+          <img src="sirkel13.png" alt="Skjæringspunkter mellom linje og sirkel" style="width: 67%;">
         </div>
       </div>
     </section>
